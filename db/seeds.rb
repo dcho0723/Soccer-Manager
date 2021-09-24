@@ -8,8 +8,10 @@ puts "Deleting old stuff..."
 
 puts "🌱 Seeding players..."
     players.each do |player|
+        Player.create(
         dob: player["DOB"],
         club: player["Club"],
+        name: player["Name"],
         country: player["Country"],
         image: player["Image"],
         number: player["Number"],
@@ -22,6 +24,7 @@ puts "🌱 Seeding players..."
         defence: player["Defence"],
         physical: player["Physical"],
         bench: player["Bench"],
+        )
     end
     
 puts "✅ Done seeding!"

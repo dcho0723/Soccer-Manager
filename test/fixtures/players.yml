@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dob: MyString
+  club: MyString
+  country: MyString
+  image: MyString
+  name: MyString
+  rating: 1
+  number: MyString
+  position: MyString
+  pace: 1
+  shot: 1
+  pass: 1
+  dribble: 1
+  defence: 1
+  physical: 1
+  bench: false
+
+two:
+  dob: MyString
+  club: MyString
+  country: MyString
+  image: MyString
+  name: MyString
+  rating: 1
+  number: MyString
+  position: MyString
+  pace: 1
+  shot: 1
+  pass: 1
+  dribble: 1
+  defence: 1
+  physical: 1
+  bench: false

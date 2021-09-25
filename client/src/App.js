@@ -1,29 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-import { useEffect } from "react"
+import "./App.css";
+import { useEffect, useState } from "react";
+import { Switch, Route } from "react-router";
+import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
 
 function App() {
+  const [user, setUser] = useState(false);
+
+  // useEffect(() => {
+  //   fetch("/players")
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
+  // });
   useEffect(() => {
-    fetch("/players")
-    .then((res) => res.json())
-    .then(data => console.log(data))
-  })
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user))
+      }
+    })
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <NavBar user={user} setUser={setUser} onLogOut={onLogOut} /> */}
+      {user ? (
+        <div>
+          <Switch></Switch>
+        </div>
+      ) : (
+        <>
+          <Login setUser={setUser} />
+          <SignUp />
+        </>
+      )}
     </div>
   );
 }

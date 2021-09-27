@@ -6,6 +6,7 @@ import SignUp from "./Components/SignUp";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
 import PlayerContainer from "./Components/PlayerContainer";
+import Users from "./Components/Users"
 
 function App() {
   const [user, setUser] = useState(false);
@@ -41,6 +42,9 @@ function App() {
             </Route>
             <Route exact path="/players">
               <PlayerContainer players={players}/>
+            </Route>
+            <Route exact path="/users">
+              <Users />
             </Route>
           </Switch>
         </div>

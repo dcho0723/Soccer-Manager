@@ -13,6 +13,9 @@ function NavBar({ onLogOut }) {
 
   return (
       <nav>
+        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/players">Search For Players</NavLink>
+        <NavLink to="/users">Search For Users</NavLink>
           <button onClick={handleLogoutClick}>Log Out</button>
       </nav>
   )

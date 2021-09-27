@@ -1,5 +1,9 @@
 class UserPlayersController < ApplicationController
 
+    def index
+        render json: UserPlayer.all
+    end
+
     def create
         user_player = UserPlayer.create!(userPlayer_params)
         byebug

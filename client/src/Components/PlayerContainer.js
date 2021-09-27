@@ -3,7 +3,6 @@ import PlayerCard from "./PlayerCard"
 
 function PlayerContainer({players}) {
 //   console.log(players);
-//   console.log("hello");
   return (
     <div>
       <h1>hello</h1>

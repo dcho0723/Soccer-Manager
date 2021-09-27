@@ -11,4 +11,6 @@ Rails.application.routes.draw do
     get "/me", to: "users#show"
 
     post "/players/new", to: "players#create"
+
+    post "/userplayer", to: "user_players#create"
 end

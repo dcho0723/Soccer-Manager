@@ -45,7 +45,25 @@ function CreatePlayer({ user, setPlayers, players }) {
         })
     }).then((r) => {
         if (r.ok) {
-            r.json().then((data) => setPlayers([...players, data]))
+            r.json().then((data) => {
+                setPlayers([...players, data])
+                //start our post to join table
+                fetch("/userplayer", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        user_id: user.id,
+                        player_id: data.id
+                    })
+                }).then((r) => {
+                    if (r.ok) {
+                        r.json().then(data => console.log(data))
+                        //figure out what to do here, right now, we are just console log created player. does it need to pushed to a state or what. if i update data. do i need to put it into state.
+                    }
+                })
+            })
         } else {
             r.json().then((data) => setErrors(data.errors))
         }

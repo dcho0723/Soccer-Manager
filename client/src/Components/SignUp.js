@@ -26,26 +26,31 @@ function SignUp({ setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+
         // history.push("/");
       } else {
         r.json().then((data) => setErrors(data.errors));
       }
     });
+    // document.getElementById("showForm").reset()
+    window.alert("Thanks for creating User")
   }
 
   //hiding sign up button
   function ShowAndHide() {
-    let x = document.getElementById('showForm');
-    let b = document.getElementById('signUpButton')
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-        b.style.display = 'none'
+    let x = document.getElementById("showForm");
+    let b = document.getElementById("signUpButton");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      b.style.display = "none";
     }
-}
+  }
 
   return (
     <div>
-        <button id="signUpButton" onClick={ShowAndHide}>Sign Up</button>
+      <button id="signUpButton" onClick={ShowAndHide}>
+        Sign Up
+      </button>
       {errors.length > 0 && (
         <div style={{ color: "red" }}>
           {errors.map((error) => (
@@ -55,8 +60,12 @@ function SignUp({ setUser }) {
           ))}
         </div>
       )}
-      <form onSubmit={(e) => handleSubmit(e)} id="showForm" style={{display: "none"}}>
-        <h1>Sign Up</h1>
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        id="showForm"
+        style={{ display: "none" }}
+      >
+        {/* <h1>Sign Up</h1> */}
         <label htmlFor="username">Username: </label>
         <input
           type="text"

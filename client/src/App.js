@@ -7,6 +7,7 @@ import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
 import PlayerContainer from "./Components/PlayerContainer";
 import Users from "./Components/Users"
+import CreatePlayer from "./Components/CreatePlayer";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -29,22 +30,27 @@ function App() {
 
   function onLogOut() {
     //also need to setPlayer state false
+    setPlayers([])
     setUser(false)
   }
 
   return (
     <div>
+      
         <div>
           <NavBar onLogOut={onLogOut} />
           <Switch>
             <Route exact path="/home">
-              <Home />
+              <Home user={user}/>
             </Route>
             <Route exact path="/players">
               <PlayerContainer players={players}/>
             </Route>
             <Route exact path="/users">
               <Users />
+            </Route>
+            <Route exact path="/createplayer">
+              <CreatePlayer user={user}/>
             </Route>
           </Switch>
         </div>

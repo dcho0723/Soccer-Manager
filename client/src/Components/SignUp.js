@@ -7,10 +7,11 @@ function SignUp({ setUser }) {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [name, setName] = useState("");
   const [errors, setErrors] = useState([]);
-//   let history = useHistory();
+  let history = useHistory();
 
+  //creating new user
   function handleSubmit(e) {
-    e.prevent.default();
+    e.preventDefault();
     fetch("/signup", {
       method: "POST",
       headers: {
@@ -32,8 +33,19 @@ function SignUp({ setUser }) {
     });
   }
 
+  //hiding sign up button
+  function ShowAndHide() {
+    let x = document.getElementById('showForm');
+    let b = document.getElementById('signUpButton')
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+        b.style.display = 'none'
+    }
+}
+
   return (
     <div>
+        <button id="signUpButton" onClick={ShowAndHide}>Sign Up</button>
       {errors.length > 0 && (
         <div style={{ color: "red" }}>
           {errors.map((error) => (
@@ -43,7 +55,7 @@ function SignUp({ setUser }) {
           ))}
         </div>
       )}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)} id="showForm" style={{display: "none"}}>
         <h1>Sign Up</h1>
         <label htmlFor="username">Username: </label>
         <input

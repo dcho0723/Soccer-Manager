@@ -4,15 +4,20 @@ import { Switch, Route } from "react-router";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import Home from "./Components/Home";
+import NavBar from "./Components/NavBar";
+import PlayerContainer from "./Components/PlayerContainer";
 
 function App() {
   const [user, setUser] = useState(false);
+  const [players, setPlayers] = useState([])
 
-  // useEffect(() => {
-  //   fetch("/players")
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // });
+  //fetch players
+  useEffect(() => {
+    fetch("/players")
+      .then((res) => res.json())
+      .then((data) => setPlayers(data));
+  },[]);
+
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -21,25 +26,30 @@ function App() {
     });
   }, []);
 
+  function onLogOut() {
+    //also need to setPlayer state false
+    setUser(false)
+  }
+
   return (
     <div>
-      {/* <NavBar user={user} setUser={setUser} onLogOut={onLogOut} /> */}
-      {user ? (
         <div>
+          <NavBar onLogOut={onLogOut} />
           <Switch>
             <Route exact path="/home">
               <Home />
             </Route>
+            <Route exact path="/players">
+              <PlayerContainer players={players}/>
+            </Route>
           </Switch>
         </div>
-       ) : ( 
         <Switch>
           <Route exact path="/">
             <Login setUser={setUser} />
-            <SignUp setUser={setUser}/>
+            <SignUp setUser={setUser} />
           </Route>
         </Switch>
-       )} 
     </div>
   );
 }

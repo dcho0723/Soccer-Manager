@@ -18,7 +18,7 @@ function App() {
     fetch("/players")
       .then((res) => res.json())
       .then((data) => setPlayers(data));
-  },[]);
+  }, []);
 
   // const getTheData = async () => {
   //   try {
@@ -61,7 +61,7 @@ console.log(players)
               <Users />
             </Route>
             <Route exact path="/createplayer">
-              <CreatePlayer user={user}/>
+              <CreatePlayer user={user} setPlayers={setPlayers} players={players}/>
             </Route>
           </Switch>
         </div>

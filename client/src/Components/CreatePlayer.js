@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function CreatePlayer({ user }) {
+function CreatePlayer({ user, setPlayers, players }) {
   const [dob, setDob] = useState("");
+//   const [name, setName] = useState("")
   // const [club, setClub] = useState("")
   const [country, setCountry] = useState("");
   const [image, setImage] = useState("");
@@ -12,12 +13,43 @@ function CreatePlayer({ user }) {
   const [pace, setPace] = useState(0);
   const [shot, setShot] = useState(0);
   const [pass, setPass] = useState(0);
-  const [dribble, setDrible] = useState(0);
+  const [dribble, setDribble] = useState(0);
   const [defence, setDefence] = useState(0);
   const [physical, setPhysical] = useState(0);
+//   const [bench, setBench] = useState(false)
+  const [errors, setErrors] = useState([])
 
+// console.log(user.players)
   function handleSubmit(e) {
     e.preventDefault();
+    fetch("/players/new" , {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            dob,
+            country,
+            image,
+            rating,
+            number,
+            position,
+            pace,
+            shot,
+            pass,
+            dribble,
+            defence,
+            physical,
+            name: user.name,
+            bench: false
+        })
+    }).then((r) => {
+        if (r.ok) {
+            r.json().then((data) => setPlayers([...players, data]))
+        } else {
+            r.json().then((data) => setErrors(data.errors))
+        }
+    })
   }
 
   return (
@@ -41,70 +73,86 @@ function CreatePlayer({ user }) {
           />
         </label>
         <label>
-          Date of Birth
+          Image
           <input
             type="text"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
           />
         </label>
         <label>
-          Date of Birth
+          Rating
           <input
-            type="text"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            type="number"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
           />
         </label>
         <label>
-          Date of Birth
+          Number
           <input
-            type="text"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            type="integer"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
           />
         </label>
         <label>
-          Date of Birth
+          Position
           <input
             type="text"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
           />
         </label>
         <label>
-          Date of Birth
+          Pace
           <input
             type="text"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            value={pace}
+            onChange={(e) => setPace(e.target.value)}
           />
         </label>
         <label>
-          Date of Birth
+          Shot
           <input
             type="text"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            value={shot}
+            onChange={(e) => setShot(e.target.value)}
           />
         </label>
         <label>
-          Date of Birth
+          Pass
           <input
             type="text"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            value={pass}
+            onChange={(e) => setPass(e.target.value)}
           />
         </label>
         <label>
-          Date of Birth
+          Dribble
           <input
             type="text"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            value={dribble}
+            onChange={(e) => setDribble(e.target.value)}
           />
         </label>
-
+        <label>
+          Defence
+          <input
+            type="text"
+            value={defence}
+            onChange={(e) => setDefence(e.target.value)}
+          />
+        </label>
+        <label>
+          Physical
+          <input
+            type="text"
+            value={physical}
+            onChange={(e) => setPhysical(e.target.value)}
+          />
+        </label>
+        <input type="submit" value="Submit" />
       </form>
     </div>
   );

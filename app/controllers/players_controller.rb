@@ -18,6 +18,6 @@ class PlayersController < ApplicationController
 
     private
     def player_params
-        params.permit(id, :dob, :club, :country, :image, :name, :rating, :number, :position, :pace, :shot, :pass, :dribble, :defence, :physical, :bench, :user_id)
+        params.permit(:id, :dob, :club, :country, :image, :name, :rating, :number, :position, :pace, :shot, :pass, :dribble, :defence, :physical, :bench)
     end
 end

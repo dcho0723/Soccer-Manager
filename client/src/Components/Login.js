@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
 
-function Login({setUser}) {
+function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,6 +16,7 @@ function Login({setUser}) {
       }).then((r) => {
           if (r.ok) {
               r.json().then((user) => setUser(user));
+              
           } else {
               r.json().then((data) => window.alert(data.error))
           }
@@ -33,7 +34,7 @@ function Login({setUser}) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password">Password: </label>
+        <label htmlFor="password">Password:{" "}</label>
         <input
           type="password"
           id="password"
@@ -41,7 +42,7 @@ function Login({setUser}) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Link to="/home"><button type="submit">LogIn</button></Link>
+        <button type="submit"><Link to="/home">LogIn</Link ></button>
       </form>
     </div>
   );

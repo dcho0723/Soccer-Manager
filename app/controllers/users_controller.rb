@@ -8,11 +8,11 @@ class UsersController < ApplicationController
     def create
         user = User.create!(user_params)
         if user.valid?
-            # byebug
-            session[:id] = user.id
-            render json: user, status: :created
+          session[:user_id] = user.id
+          render json: user, status: :created
+        else
+          render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
-        ##maybe need else, with render unproccessably.
     end
 
     def show 
@@ -24,6 +24,4 @@ class UsersController < ApplicationController
     def user_params
         params.permit(:username, :password, :password_confirmation, :name)
     end
-
-
 end

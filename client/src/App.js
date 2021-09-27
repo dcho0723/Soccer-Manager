@@ -13,13 +13,24 @@ function App() {
   const [user, setUser] = useState(false);
   const [players, setPlayers] = useState([])
 
-  //fetch players
+  // fetch players
   useEffect(() => {
     fetch("/players")
       .then((res) => res.json())
       .then((data) => setPlayers(data));
   },[]);
 
+  // const getTheData = async () => {
+  //   try {
+  //     const response = await fetch("/players");
+  //     if (!response.ok) throw Error();
+  //     const data = await response.json();
+  //     setPlayers(data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+console.log(players)
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -41,7 +52,7 @@ function App() {
           <NavBar onLogOut={onLogOut} />
           <Switch>
             <Route exact path="/home">
-              <Home user={user}/>
+              <Home user={user} players={players} setPlayers={setPlayers}/>
             </Route>
             <Route exact path="/players">
               <PlayerContainer players={players}/>

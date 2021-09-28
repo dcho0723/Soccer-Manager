@@ -20,7 +20,7 @@ class UserPlayersController < ApplicationController
     private
     
     def userPlayer_params
-        params.permit(:id, :user_id, :player_id)
+        params.permit(:id, :user_id, :player_id, :user_player)
     end
 
 end

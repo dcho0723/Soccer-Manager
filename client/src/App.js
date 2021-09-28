@@ -26,8 +26,8 @@ function App() {
   useEffect(() => {
     fetch("/team")
       .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, [teamData]);
+      .then((data) => setTeamData(data));
+  }, [setTeamData]);
   //////
   // const searchTeam = async () => {
   //   try {
@@ -85,7 +85,7 @@ function App() {
               <CreatePlayer user={user} setPlayers={setPlayers} players={players} getTheData={getTheData}/>
             </Route>
             <Route exact path="/team">
-              <Team />
+              <Team teamData={teamData} setTeamData={setTeamData}/>
             </Route>
           </Switch>
         </div>

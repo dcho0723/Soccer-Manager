@@ -8,19 +8,38 @@ import NavBar from "./Components/NavBar";
 import PlayerContainer from "./Components/PlayerContainer";
 import Users from "./Components/Users"
 import CreatePlayer from "./Components/CreatePlayer";
+import Team from "./Components/Team";
 
 function App() {
   const [user, setUser] = useState(false);
   const [players, setPlayers] = useState([])
+  const [teamData, setTeamData] = useState([])
 
-  // fetch players
+  // fetch all players
   useEffect(() => {
     fetch("/players")
       .then((res) => res.json())
       .then((data) => setPlayers(data));
-  }, []);
+  }, [setPlayers]);
 
-console.log(user)
+  //fetch players for team
+  useEffect(() => {
+    fetch("/players")
+      .then((res) => res.json())
+      .then((data) => setPlayers(data));
+  }, [setPlayers]);
+
+  const getTheData = async () => {
+    try {
+      const response = await fetch("players");
+      if (!response.ok) throw Error();
+      const data = await response.json();
+      setPlayers(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -46,19 +65,22 @@ console.log(user)
               <Home user={user} players={players} setPlayers={setPlayers}/>
             </Route>
             <Route exact path="/players">
-              <PlayerContainer players={players}/>
+              <PlayerContainer players={players} user={user} setTeamData={setTeamData} teamData={teamData}/>
             </Route>
             <Route exact path="/users">
               <Users />
             </Route>
             <Route exact path="/createplayer">
-              <CreatePlayer user={user} setPlayers={setPlayers} players={players}/>
+              <CreatePlayer user={user} setPlayers={setPlayers} players={players} getTheData={getTheData}/>
+            </Route>
+            <Route exact path="/team">
+              <Team />
             </Route>
           </Switch>
         </div>
         <Switch>
           <Route exact path="/">
-            <Login setUser={setUser} />
+            <Login setUser={setUser}/>
             <SignUp setUser={setUser} />
           </Route>
         </Switch>

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     post "/players/new", to: "players#create"
 
     post "/userplayer", to: "user_players#create"
+
 end

@@ -16,7 +16,6 @@ function Login({ setUser }) {
       }).then((r) => {
           if (r.ok) {
               r.json().then((user) => setUser(user));
-              
           } else {
               r.json().then((data) => window.alert(data.error))
           }
@@ -42,7 +41,12 @@ function Login({ setUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit"><Link to="/home">LogIn</Link ></button>
+        <Link to="/home" >
+          <button type="submit">
+            LogIn
+          </button>
+        </Link>
+        {/* <button type="submit" onClick="window.location.href='https://localhost:4000/home';">LogIn</button> */}
       </form>
     </div>
   );

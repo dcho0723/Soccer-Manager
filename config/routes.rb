@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     
     post "/signup", to: "users#create"
     get "/me", to: "users#show"
+    get "/team", to: "users#team"
 
     post "/players/new", to: "players#create"
 

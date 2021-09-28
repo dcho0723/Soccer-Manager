@@ -20,6 +20,11 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def team
+        players = User.find_by(id: session[:user_id]).players
+        render json: players
+    end
+
     private
     def user_params
         params.permit(:username, :password, :password_confirmation, :name)

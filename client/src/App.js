@@ -24,10 +24,21 @@ function App() {
 
   //fetch players for team
   useEffect(() => {
-    fetch("/players")
+    fetch("/team")
       .then((res) => res.json())
-      .then((data) => setPlayers(data));
-  }, [setPlayers]);
+      .then((data) => console.log(data));
+  }, [teamData]);
+  //////
+  // const searchTeam = async () => {
+  //   try {
+  //     const response = await fetch("team");
+  //     if (!response.ok) throw Error();
+  //     const data = await response.json();
+  //     console.log(data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const getTheData = async () => {
     try {

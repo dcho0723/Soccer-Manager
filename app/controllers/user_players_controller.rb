@@ -4,9 +4,14 @@ class UserPlayersController < ApplicationController
         render json: UserPlayer.all
     end
 
+    def show
+        players = UserPlayer.find_by(params[:user_id])
+        render json: players
+        # byebug
+    end
+
     def create
         user_player = UserPlayer.create!(userPlayer_params)
-        byebug
         if user_player.valid?
             render json: user_player, status: :created
         end

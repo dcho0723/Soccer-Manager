@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
     resources :user_players
     resources :players
-    resources :users
+    resources :users, only: [:show, :index]
 
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"

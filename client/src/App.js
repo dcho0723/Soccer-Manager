@@ -20,17 +20,7 @@ function App() {
       .then((data) => setPlayers(data));
   }, []);
 
-  // const getTheData = async () => {
-  //   try {
-  //     const response = await fetch("/players");
-  //     if (!response.ok) throw Error();
-  //     const data = await response.json();
-  //     setPlayers(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-console.log(players)
+console.log(user)
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -38,6 +28,7 @@ console.log(players)
       }
     });
   }, []);
+
 
   function onLogOut() {
     //also need to setPlayer state false

@@ -9,11 +9,8 @@ function TeamDetail({ teamData, fetchTeamPlayers }) {
   function handleDelete() {
       fetch(`/team/${id}/remove`, {
           method: "DELETE"
-      }).then(res => res.json())
+      })
       fetchTeamPlayers()
-      //should call team data function 
-      console.log("delete has been done")
-    //   history.push('/team')
   }
   return (
     <div>

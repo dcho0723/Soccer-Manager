@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom"
 
 
-function Login({ setUser }) {
+function Login({ setUser, addPlayersToTeam }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory()
@@ -18,7 +18,9 @@ function Login({ setUser }) {
       }).then((r) => {  
           if (r.ok) {
               r.json().then((user) => setUser(user));
+              addPlayersToTeam()
               history.push('/welcome')
+              
           } else {
               r.json().then((data) => window.alert(data.error))
           }

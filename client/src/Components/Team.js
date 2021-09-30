@@ -4,17 +4,6 @@ import TeamCard from "./TeamCard"
 
 function Team({ teamData, user }) {
 
-
-    // need to fix fetch for teamData, it is rendering as a blank array at first. 
-    // console.log(teamData)
-    // const returnTeam = teamData.map((player) => {
-    //     return(
-    //         <div key={player.id}>
-    //         </div>
-    //     )
-    // })
-    // console.log(teamData)
-
     
     return(
         <>

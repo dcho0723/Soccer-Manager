@@ -12,12 +12,14 @@ import Team from "./Components/Team";
 import TeamDetail from "./Components/TeamDetail"
 import Welcome from "./Components/Welcome"
 import { useHistory } from "react-router-dom"
+import UserDetail from "./Components/UserDetail";
 
 function App() {
   const [user, setUser] = useState(false);
   const [players, setPlayers] = useState([])
   const [teamData, setTeamData] = useState([])
   let history = useHistory()
+  const [allUsers, setAllUsers] = useState([]);
 
   // fetch all players
   useEffect(() => {
@@ -26,7 +28,7 @@ function App() {
       .then((data) => setPlayers(data));
   }, [setPlayers]);
 
-  //fetch players for team
+  // fetch players for team
   useEffect(() => {
     fetch("/team")
       .then((res) => res.json())
@@ -45,6 +47,12 @@ function App() {
     }
     history.push('/team')
   };
+
+  useEffect(() => {
+    fetch("/users")
+      .then((res) => res.json())
+      .then((data) => setAllUsers(data));
+  }, []);
 
   const addPlayersToTeam = async () => {
     try {
@@ -78,6 +86,7 @@ function App() {
 
   function onLogOut() {
     setPlayers([])
+    setTeamData([])
     setUser(false)
   }
 
@@ -94,7 +103,10 @@ function App() {
               <PlayerContainer players={players} user={user} setTeamData={setTeamData} teamData={teamData} addPlayersToTeam={addPlayersToTeam}/>
             </Route>
             <Route exact path="/users">
-              <Users user={user}/>
+              <Users user={user} allUsers={allUsers}/>
+            </Route>
+            <Route exact path="/users/:id">
+              <UserDetail allUsers={allUsers}/>
             </Route>
             <Route exact path="/createplayer">
               <CreatePlayer user={user} setPlayers={setPlayers} players={players} getTheData={getTheData}/>
@@ -113,7 +125,7 @@ function App() {
         {!user ? 
         <Switch>
           <Route exact path="/">
-            <Login setUser={setUser}/>
+            <Login setUser={setUser} addPlayersToTeam={addPlayersToTeam}/>
             <SignUp setUser={setUser} />
           </Route>
         </Switch>

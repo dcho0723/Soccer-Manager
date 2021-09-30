@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom"
+import UserDetail from "./UserDetail";
 
-function Users({ user }) {
-  const [allUsers, setAllUsers] = useState([]);
+function Users({ user, allUsers }) {
+  // const [allUsers, setAllUsers] = useState([]);
 
-  useEffect(() => {
-    fetch("/users")
-      .then((res) => res.json())
-      .then((data) => setAllUsers(data));
-  }, []);
-  console.log(allUsers);
+  // useEffect(() => {
+  //   fetch("/users")
+  //     .then((res) => res.json())
+  //     .then((data) => setAllUsers(data));
+  // }, []);
+  // console.log(allUsers);
 
   //do i neeed to do the same thing as i did before, i can pass down users.id through useparams 
 
@@ -21,9 +23,7 @@ function Users({ user }) {
         .map((users) => {
           return (
             <div>
-              <h1>{users.name}'s Team</h1>
-              {console.log(users.players[0])}
-              {/* <li>{}</li> */}
+              <h1>User: <Link to={`/users/${users.id}`}>{users.name}</Link></h1>
             </div>
           );
         })}

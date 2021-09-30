@@ -61,17 +61,16 @@ function App() {
       }
     });
   }, [setUser, players]);
-//added user in depenency, test if create player gets updated on hpme page since we have action in serializer on user
+
 
   function onLogOut() {
-    //also need to setPlayer state false
     setPlayers([])
     setUser(false)
   }
 
   return (
     <div>
-      
+
         <div>
           <NavBar onLogOut={onLogOut} />
           <Switch>
@@ -98,12 +97,14 @@ function App() {
             </Route>
           </Switch>
         </div>
+        {!user ? 
         <Switch>
           <Route exact path="/">
             <Login setUser={setUser}/>
             <SignUp setUser={setUser} />
           </Route>
         </Switch>
+        : null}
     </div>
   );
 }

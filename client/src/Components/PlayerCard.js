@@ -23,7 +23,6 @@ function PlayerCard({
 }) {
 
   function handleClick() {
-      console.log(id)
       fetch("/userplayer", {
         method: "POST",
         headers: {
@@ -35,7 +34,8 @@ function PlayerCard({
         })
     }).then((r) => {
         if (r.ok) {
-            r.json().then(data => setTeamData(...teamData, [data.player]))
+            r.json().then(data => setTeamData(...[teamData], [data.player], console.log(data.player), console.log(teamData)))
+          
             //why is it adding the set arrray each time into user_player
             
             //figure out what to do here, right now, we are just console log created player. does it need to pushed to a state or what. if i update data. do i need to put it into state.

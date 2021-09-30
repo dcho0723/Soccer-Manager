@@ -19,7 +19,7 @@ function TeamCard({
   user
 }) {
   function handleClick() {
-      console.log(user)
+      console.log(user.id)
       console.log(id)
       // need to delete player from join table where user.id and id(player) is equal 
   }

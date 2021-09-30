@@ -57,8 +57,8 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
-  }, []);
-
+  }, [setUser]);
+//added user in depenency, test if create player gets updated on hpme page since we have action in serializer on user
 
   function onLogOut() {
     //also need to setPlayer state false
@@ -85,7 +85,7 @@ function App() {
               <CreatePlayer user={user} setPlayers={setPlayers} players={players} getTheData={getTheData}/>
             </Route>
             <Route exact path="/team">
-              <Team teamData={teamData} setTeamData={setTeamData}/>
+              <Team teamData={teamData} setTeamData={setTeamData} user={user}/>
             </Route>
           </Switch>
         </div>

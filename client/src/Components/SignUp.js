@@ -26,13 +26,14 @@ function SignUp({ setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
-
-        // history.push("/");
       } else {
         r.json().then((data) => setErrors(data.errors));
       }
     });
-    // document.getElementById("showForm").reset()
+    setUsername("")
+    setPassword("")
+    setPasswordConfirmation("")
+    setName("")
     window.alert("Thanks for creating User")
   }
 

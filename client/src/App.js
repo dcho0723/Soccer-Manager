@@ -60,7 +60,7 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
-  }, [setUser]);
+  }, [setUser, players]);
 //added user in depenency, test if create player gets updated on hpme page since we have action in serializer on user
 
   function onLogOut() {

@@ -7,7 +7,6 @@ class UserPlayersController < ApplicationController
     def show
         players = UserPlayer.find_by(params[:user_id])
         render json: players
-        # byebug
     end
 
     def create
@@ -19,7 +18,6 @@ class UserPlayersController < ApplicationController
 
     def destroy
         player = UserPlayer.where(user_id: session[:user_id], player_id: params[:id])
-        # byebug
         player[0].delete
         head :no_content
     end

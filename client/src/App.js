@@ -10,6 +10,7 @@ import Users from "./Components/Users"
 import CreatePlayer from "./Components/CreatePlayer";
 import Team from "./Components/Team";
 import TeamDetail from "./Components/TeamDetail"
+import Welcome from "./Components/Welcome"
 
 function App() {
   const [user, setUser] = useState(false);
@@ -29,6 +30,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => setTeamData(data));
   }, [setTeamData]);
+
   //////
   // const searchTeam = async () => {
   //   try {
@@ -80,7 +82,7 @@ function App() {
               <PlayerContainer players={players} user={user} setTeamData={setTeamData} teamData={teamData}/>
             </Route>
             <Route exact path="/users">
-              <Users />
+              <Users user={user}/>
             </Route>
             <Route exact path="/createplayer">
               <CreatePlayer user={user} setPlayers={setPlayers} players={players} getTheData={getTheData}/>
@@ -90,6 +92,9 @@ function App() {
             </Route>
             <Route exact path="/team/:id">
               <TeamDetail teamData={teamData} user={user}/>
+            </Route>
+            <Route exact path="/welcome">
+              <Welcome/>
             </Route>
           </Switch>
         </div>

@@ -18,17 +18,18 @@ function Home({ user, setPlayers, players, searchUserPlayer }) {
       .then((res) => res.json())
       .then((data) => setPlayers(data));
   }, [setPlayers]);
+  console.log(user.show_users_player)
 
   function searchUserPlayer() {
-    if (user.show_user_players === 0) {
+    if (user.show_user_players_length === 0) {
       return <Link to="/createplayer">Create Your Player</Link>;
     } else {
       return (
         <div>
           <h1>heres users player</h1>
-          <h1>{user.show_first_player["name"]}</h1>
-          <h1>{user.show_first_player["dob"]}</h1>
-          <p>{user.show_first_player["pace"]}</p>
+          <h1>{user.show_users_player["name"]}</h1>
+          <h1>{user.show_users_player["dob"]}</h1>
+          <p>{user.show_users_player["pace"]}</p>
           {/* add users data here */}
         </div>
       );

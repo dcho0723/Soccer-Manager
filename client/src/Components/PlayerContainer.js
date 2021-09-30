@@ -1,7 +1,7 @@
 import React from "react";
 import PlayerCard from "./PlayerCard"
 
-function PlayerContainer({players, user, teamData, setTeamData}) {
+function PlayerContainer({players, user, teamData, setTeamData, addPlayersToTeam}) {
 //   console.log(players);
   return (
     <div>
@@ -29,6 +29,7 @@ function PlayerContainer({players, user, teamData, setTeamData}) {
               user={user}
               teamData={teamData}
               setTeamData={setTeamData}
+              addPlayersToTeam={addPlayersToTeam}
             />
           </div>
         );

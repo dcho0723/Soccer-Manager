@@ -11,11 +11,13 @@ import CreatePlayer from "./Components/CreatePlayer";
 import Team from "./Components/Team";
 import TeamDetail from "./Components/TeamDetail"
 import Welcome from "./Components/Welcome"
+import { useHistory } from "react-router-dom"
 
 function App() {
   const [user, setUser] = useState(false);
   const [players, setPlayers] = useState([])
   const [teamData, setTeamData] = useState([])
+  let history = useHistory()
 
   // fetch all players
   useEffect(() => {
@@ -31,17 +33,29 @@ function App() {
       .then((data) => setTeamData(data));
   }, [setTeamData]);
 
-  //////
-  // const searchTeam = async () => {
-  //   try {
-  //     const response = await fetch("team");
-  //     if (!response.ok) throw Error();
-  //     const data = await response.json();
-  //     console.log(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  ////
+  const fetchTeamPlayers = async () => {
+    try {
+      const response = await fetch("/team");
+      if (!response.ok) throw Error();
+      const data = await response.json();
+      setTeamData(data)
+    } catch (err) {
+      console.log(err);
+    }
+    history.push('/team')
+  };
+
+  const addPlayersToTeam = async () => {
+    try {
+      const response = await fetch("/team");
+      if (!response.ok) throw Error();
+      const data = await response.json();
+      setTeamData(data)
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const getTheData = async () => {
     try {
@@ -62,7 +76,6 @@ function App() {
     });
   }, [setUser, players]);
 
-
   function onLogOut() {
     setPlayers([])
     setUser(false)
@@ -78,7 +91,7 @@ function App() {
               <Home user={user} players={players} setPlayers={setPlayers}/>
             </Route>
             <Route exact path="/players">
-              <PlayerContainer players={players} user={user} setTeamData={setTeamData} teamData={teamData}/>
+              <PlayerContainer players={players} user={user} setTeamData={setTeamData} teamData={teamData} addPlayersToTeam={addPlayersToTeam}/>
             </Route>
             <Route exact path="/users">
               <Users user={user}/>
@@ -90,7 +103,7 @@ function App() {
               <Team teamData={teamData} setTeamData={setTeamData} user={user}/>
             </Route>
             <Route exact path="/team/:id">
-              <TeamDetail teamData={teamData} user={user}/>
+              <TeamDetail teamData={teamData} user={user} setTeamData={setTeamData} fetchTeamPlayers={fetchTeamPlayers}/>
             </Route>
             <Route exact path="/welcome">
               <Welcome/>

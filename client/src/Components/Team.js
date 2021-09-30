@@ -14,6 +14,7 @@ function Team({ teamData, user }) {
     //     )
     // })
     // console.log(teamData)
+
     
     return(
         <>

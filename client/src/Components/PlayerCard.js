@@ -19,7 +19,8 @@ function PlayerCard({
   id,
   user,
   setTeamData,
-  teamData
+  teamData,
+  addPlayersToTeam
 }) {
 
   function handleClick() {
@@ -34,8 +35,8 @@ function PlayerCard({
         })
     }).then((r) => {
         if (r.ok) {
-            r.json().then(data => setTeamData(...[teamData], [data.player], console.log(data.player), console.log(teamData)))
-          
+            r.json().then(data => setTeamData(...[teamData], [data.player]))
+            addPlayersToTeam()
             //why is it adding the set arrray each time into user_player
             
             //figure out what to do here, right now, we are just console log created player. does it need to pushed to a state or what. if i update data. do i need to put it into state.

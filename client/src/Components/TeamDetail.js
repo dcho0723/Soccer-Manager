@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-function TeamDetail({ teamData }) {
+function TeamDetail({ teamData, fetchTeamPlayers }) {
   const { id } = useParams();
   let history = useHistory()
 
@@ -10,9 +10,10 @@ function TeamDetail({ teamData }) {
       fetch(`/team/${id}/remove`, {
           method: "DELETE"
       }).then(res => res.json())
+      fetchTeamPlayers()
       //should call team data function 
       console.log("delete has been done")
-      history.push('/team')
+    //   history.push('/team')
   }
   return (
     <div>

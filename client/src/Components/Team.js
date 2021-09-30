@@ -14,10 +14,12 @@ function Team({ teamData, user }) {
     //     )
     // })
     // console.log(teamData)
+    
     return(
         <>
         <h1>hello in team</h1>
-        {teamData.map((player) => {
+        <TeamCard teamData={teamData} />
+        {/* {teamData.map((player) => {
             // console.log(player)
             return (
                 <div key={player.id}>
@@ -42,7 +44,7 @@ function Team({ teamData, user }) {
                     />
                 </div>
             )
-        })}
+        })} */}
         </>
     )
 

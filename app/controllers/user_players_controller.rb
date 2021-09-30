@@ -17,6 +17,13 @@ class UserPlayersController < ApplicationController
         end
     end
 
+    def destroy
+        player = UserPlayer.where(user_id: session[:user_id], player_id: params[:id])
+        # byebug
+        player[0].delete
+        head :no_content
+    end
+
     private
     
     def userPlayer_params

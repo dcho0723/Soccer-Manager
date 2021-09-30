@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     post "/players/new", to: "players#create"
 
     post "/userplayer", to: "user_players#create"
+    delete "/team/:id/remove", to: "user_players#destroy"
 
 end

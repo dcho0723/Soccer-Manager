@@ -9,6 +9,7 @@ import PlayerContainer from "./Components/PlayerContainer";
 import Users from "./Components/Users"
 import CreatePlayer from "./Components/CreatePlayer";
 import Team from "./Components/Team";
+import TeamDetail from "./Components/TeamDetail"
 
 function App() {
   const [user, setUser] = useState(false);
@@ -86,6 +87,9 @@ function App() {
             </Route>
             <Route exact path="/team">
               <Team teamData={teamData} setTeamData={setTeamData} user={user}/>
+            </Route>
+            <Route exact path="/team/:id">
+              <TeamDetail teamData={teamData} user={user}/>
             </Route>
           </Switch>
         </div>

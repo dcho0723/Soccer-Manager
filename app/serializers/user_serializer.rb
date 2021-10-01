@@ -16,4 +16,9 @@ class UserSerializer < ActiveModel::Serializer
     end
   end
 
+  # def show_user_players_id
+  #   byebug
+  #   self.object.players.where(name: self.object.name)[0]
+  # end
+
 end

@@ -6,19 +6,19 @@ import SignUp from "./Components/SignUp";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
 import PlayerContainer from "./Components/PlayerContainer";
-import Users from "./Components/Users"
+import Users from "./Components/Users";
 import CreatePlayer from "./Components/CreatePlayer";
 import Team from "./Components/Team";
-import TeamDetail from "./Components/TeamDetail"
-import Welcome from "./Components/Welcome"
-import { useHistory } from "react-router-dom"
+import TeamDetail from "./Components/TeamDetail";
+import Welcome from "./Components/Welcome";
+import { useHistory } from "react-router-dom";
 import UserDetail from "./Components/UserDetail";
 
 function App() {
   const [user, setUser] = useState(false);
-  const [players, setPlayers] = useState([])
-  const [teamData, setTeamData] = useState([])
-  let history = useHistory()
+  const [players, setPlayers] = useState([]);
+  const [teamData, setTeamData] = useState([]);
+  let history = useHistory();
   const [allUsers, setAllUsers] = useState([]);
 
   // fetch all players
@@ -41,11 +41,11 @@ function App() {
       const response = await fetch("/team");
       if (!response.ok) throw Error();
       const data = await response.json();
-      setTeamData(data)
+      setTeamData(data);
     } catch (err) {
       console.log(err);
     }
-    history.push('/team')
+    history.push("/team");
   };
 
   const fetchAllUsers = async () => {
@@ -53,7 +53,7 @@ function App() {
       const response = await fetch("/users");
       if (!response.ok) throw Error();
       const data = await response.json();
-      setAllUsers(data)
+      setAllUsers(data);
     } catch (err) {
       console.log(err);
     }
@@ -70,7 +70,7 @@ function App() {
       const response = await fetch("/team");
       if (!response.ok) throw Error();
       const data = await response.json();
-      setTeamData(data)
+      setTeamData(data);
     } catch (err) {
       console.log(err);
     }
@@ -96,51 +96,71 @@ function App() {
   }, [setUser, players]);
 
   function onLogOut() {
-    setPlayers([])
-    setTeamData([])
-    setUser(false)
+    setPlayers([]);
+    setTeamData([]);
+    setUser(false);
   }
 
   return (
     <div>
-
-        <div>
-          <NavBar onLogOut={onLogOut} />
-          <Switch>
-            <Route exact path="/home">
-              <Home user={user} players={players} setPlayers={setPlayers}/>
-            </Route>
-            <Route exact path="/players">
-              <PlayerContainer players={players} user={user} setTeamData={setTeamData} teamData={teamData} addPlayersToTeam={addPlayersToTeam}/>
-            </Route>
-            <Route exact path="/users">
-              <Users user={user} allUsers={allUsers}/>
-            </Route>
-            <Route exact path="/users/:id">
-              <UserDetail allUsers={allUsers}/>
-            </Route>
-            <Route exact path="/createplayer">
-              <CreatePlayer user={user} setPlayers={setPlayers} players={players} getTheData={getTheData} addPlayersToTeam={addPlayersToTeam}/>
-            </Route>
-            <Route exact path="/team">
-              <Team teamData={teamData} setTeamData={setTeamData} user={user}/>
-            </Route>
-            <Route exact path="/team/:id">
-              <TeamDetail teamData={teamData} user={user} setTeamData={setTeamData} fetchTeamPlayers={fetchTeamPlayers}/>
-            </Route>
-            <Route exact path="/welcome">
-              <Welcome/>
-            </Route>
-          </Switch>
-        </div>
-        {!user ? 
+      <div>
+        <NavBar onLogOut={onLogOut} />
+        <Switch>
+          <Route exact path="/home">
+            <Home user={user} players={players} setPlayers={setPlayers} />
+          </Route>
+          <Route exact path="/players">
+            <PlayerContainer
+              players={players}
+              user={user}
+              setTeamData={setTeamData}
+              teamData={teamData}
+              addPlayersToTeam={addPlayersToTeam}
+            />
+          </Route>
+          <Route exact path="/users">
+            <Users user={user} allUsers={allUsers} />
+          </Route>
+          <Route exact path="/users/:id">
+            <UserDetail allUsers={allUsers} user={user} />
+          </Route>
+          <Route exact path="/createplayer">
+            <CreatePlayer
+              user={user}
+              setPlayers={setPlayers}
+              players={players}
+              getTheData={getTheData}
+              addPlayersToTeam={addPlayersToTeam}
+            />
+          </Route>
+          <Route exact path="/team">
+            <Team teamData={teamData} setTeamData={setTeamData} user={user} />
+          </Route>
+          <Route exact path="/team/:id">
+            <TeamDetail
+              teamData={teamData}
+              user={user}
+              setTeamData={setTeamData}
+              fetchTeamPlayers={fetchTeamPlayers}
+            />
+          </Route>
+          <Route exact path="/welcome">
+            <Welcome />
+          </Route>
+        </Switch>
+      </div>
+      {!user ? (
         <Switch>
           <Route exact path="/">
-            <Login setUser={setUser} addPlayersToTeam={addPlayersToTeam} fetchAllUsers={fetchAllUsers}/>
+            <Login
+              setUser={setUser}
+              addPlayersToTeam={addPlayersToTeam}
+              fetchAllUsers={fetchAllUsers}
+            />
             <SignUp setUser={setUser} />
           </Route>
         </Switch>
-        : null}
+      ) : null}
     </div>
   );
 }

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get "/team", to: "users#team"
 
     post "/players/new", to: "players#create"
+    patch "players/:playerId/update", to: "players#update"
 
     post "/userplayer", to: "user_players#create"
     delete "/team/:id/remove", to: "user_players#destroy"

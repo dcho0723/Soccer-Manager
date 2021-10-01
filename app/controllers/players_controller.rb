@@ -16,6 +16,14 @@ class PlayersController < ApplicationController
         end
     end
 
+    def update
+        player = Player.find_by(id: params[:playerId])
+        player.update(player_params)
+
+        render json: player, status: :accepted
+
+    end
+
 
     private
     def player_params

@@ -39,12 +39,11 @@ function PlayerCard({
             addPlayersToTeam()
         }
     })
-
   }
-
   return (
     <div>
       <h1>{name}</h1>
+      <img src={image} />
       <button onClick={handleClick}>Add To Your Team</button>
     </div>
   );

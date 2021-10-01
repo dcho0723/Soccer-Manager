@@ -120,7 +120,7 @@ function App() {
               <UserDetail allUsers={allUsers}/>
             </Route>
             <Route exact path="/createplayer">
-              <CreatePlayer user={user} setPlayers={setPlayers} players={players} getTheData={getTheData}/>
+              <CreatePlayer user={user} setPlayers={setPlayers} players={players} getTheData={getTheData} addPlayersToTeam={addPlayersToTeam}/>
             </Route>
             <Route exact path="/team">
               <Team teamData={teamData} setTeamData={setTeamData} user={user}/>

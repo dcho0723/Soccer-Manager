@@ -30,10 +30,10 @@ function SignUp({ setUser }) {
         r.json().then((data) => setErrors(data.errors));
       }
     });
-    setUsername("")
-    setPassword("")
-    setPasswordConfirmation("")
-    setName("")
+    // setUsername("")
+    // setPassword("")
+    // setPasswordConfirmation("")
+    // setName("")
     window.alert("Thanks for creating User")
   }
 

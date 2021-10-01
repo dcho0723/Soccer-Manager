@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function CreatePlayer({ user, setPlayers, players, getTheData }) {
+function CreatePlayer({ user, setPlayers, players, getTheData, addPlayersToTeam }) {
   const [dob, setDob] = useState("");
   const [country, setCountry] = useState("");
   const [image, setImage] = useState("");
@@ -58,6 +58,7 @@ function CreatePlayer({ user, setPlayers, players, getTheData }) {
                     if (r.ok) {
                         r.json().then(data => setPlayers(...players, data))
                         getTheData()
+                        addPlayersToTeam()
                         
                         //figure out what to do here, right now, we are just console log created player. does it need to pushed to a state or what. if i update data. do i need to put it into state.
                     }

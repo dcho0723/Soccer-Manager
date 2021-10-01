@@ -10,7 +10,10 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def get_users_average_rating
-    self.object.players.map{|a| a.rating}.inject(0, :+)/self.object.players.length
+
+    if self.object.players.length != 0
+      self.object.players.map{|a| a.rating}.inject(0, :+)/self.object.players.length
+    end
   end
 
 end

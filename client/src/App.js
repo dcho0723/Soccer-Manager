@@ -48,6 +48,17 @@ function App() {
     history.push('/team')
   };
 
+  const fetchAllUsers = async () => {
+    try {
+      const response = await fetch("/users");
+      if (!response.ok) throw Error();
+      const data = await response.json();
+      setAllUsers(data)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     fetch("/users")
       .then((res) => res.json())
@@ -125,7 +136,7 @@ function App() {
         {!user ? 
         <Switch>
           <Route exact path="/">
-            <Login setUser={setUser} addPlayersToTeam={addPlayersToTeam}/>
+            <Login setUser={setUser} addPlayersToTeam={addPlayersToTeam} fetchAllUsers={fetchAllUsers}/>
             <SignUp setUser={setUser} />
           </Route>
         </Switch>

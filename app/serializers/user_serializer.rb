@@ -8,4 +8,5 @@ class UserSerializer < ActiveModel::Serializer
   def show_users_player
     self.object.players.where(name: self.object.name)[0]
   end
+
 end

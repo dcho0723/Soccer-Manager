@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import CreatePlayer from "./CreatePlayer";
 
-function Home({ user, setPlayers, players, searchUserPlayer }) {
+function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
   //   const userPlayer = players.filter((player) => player.name === user.name);
   //   console.log(userPlayer);
   //   console.log(user.show_first_player)
@@ -12,14 +12,19 @@ function Home({ user, setPlayers, players, searchUserPlayer }) {
   //     </div>);
   //   });
   //   const userPlayerMap = user.show_first_player;
+  // useEffect(() => {
+  //   fetch("/me").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
+  // }, [setUser, players]);
 
   useEffect(() => {
     fetch("/players")
       .then((res) => res.json())
       .then((data) => setPlayers(data));
   }, [setPlayers]);
-  // console.log(user.show_users_player)
-  // console.log(user.get_users_average_rating)
 
   function searchUserPlayer() {
     if (user.show_user_players_length === 0) {
@@ -29,10 +34,15 @@ function Home({ user, setPlayers, players, searchUserPlayer }) {
         <div>
           <h1>heres users player</h1>
           <h1>Your Teams Average Rating {user.get_users_average_rating}</h1>
-          <h1>{user.show_users_player["name"]}</h1>
-          <h1>{user.show_users_player["dob"]}</h1>
-          <p>{user.show_users_player["pace"]}</p>
-          {/* add users data here */}
+          <h1>Name: {user.show_users_player_name}</h1>
+          <h1>Rating: {user.show_users_player_rating}</h1>
+          <h1>DOB: {user.show_users_player_dob}</h1>
+          <p>Pace: {user.show_users_player_pace}</p> 
+          <p>Shot: {user.show_users_player_shot}</p> 
+          <p>Dribble: {user.show_users_player_dribble}</p> 
+          <p>Pass: {user.show_users_player_pass}</p> 
+          <p>Defence: {user.show_users_player_defence}</p> 
+          <p>Physical: {user.show_users_player_physical}</p> 
         </div>
       );
     }

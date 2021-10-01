@@ -107,7 +107,7 @@ function App() {
         <NavBar onLogOut={onLogOut} />
         <Switch>
           <Route exact path="/home">
-            <Home user={user} players={players} setPlayers={setPlayers} />
+            <Home user={user} setUser={setUser} players={players} setPlayers={setPlayers} />
           </Route>
           <Route exact path="/players">
             <PlayerContainer

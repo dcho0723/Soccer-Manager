@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function PlayerCard({
   dob,
   club,
@@ -20,30 +19,51 @@ function PlayerCard({
   user,
   setTeamData,
   teamData,
-  addPlayersToTeam
+  addPlayersToTeam,
 }) {
-
   function handleClick() {
-      fetch("/userplayer", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            user_id: user.id,
-            player_id: id
-        })
+    fetch("/userplayer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: user.id,
+        player_id: id,
+      }),
     }).then((r) => {
-        if (r.ok) {
-            r.json().then(data => setTeamData(...[teamData], [data.player]))
-            addPlayersToTeam()
-        }
-    })
+      if (r.ok) {
+        r.json().then((data) => setTeamData(...[teamData], [data.player]));
+        addPlayersToTeam();
+      }
+    });
   }
   return (
     <div>
-      <h1>{name}</h1>
-      <img src={image} />
+      {position == "Goalie" ? (
+        <div>
+          <h1>{name}</h1>
+          <img src={image} />
+          <p>Diving: {pace}</p>
+          <p>Handling: {shot}</p>
+          <p>Kicking: {pass}</p>
+          <p>Reflexes: {dribble}</p>
+          <p>Speed: {defence}</p>
+          <p>Positioning: {physical}</p>
+        </div>
+      ) : (
+        <div>
+          <h1>{name}</h1>
+          <img src={image} />
+          <p>Pace: {pace}</p>
+          <p>Shot: {shot}</p>
+          <p>Pass: {pass}</p>
+          <p>Dribble: {dribble}</p>
+          <p>Defence: {defence}</p>
+          <p>Physical: {physical}</p>
+        </div>
+      )}
+
       <button onClick={handleClick}>Add To Your Team</button>
     </div>
   );

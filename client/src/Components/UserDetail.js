@@ -5,7 +5,6 @@ function UserDetail({ allUsers, user }) {
   const { id } = useParams();
   let history = useHistory();
 
-  //   if let playerId = user.show_users_player["id"]
   let playerId, pace, shot, pass, dribble, defence, physical, rating;
   if (user.show_user_players_length > 0) {
     playerId = user.show_users_player["id"];
@@ -30,8 +29,7 @@ function UserDetail({ allUsers, user }) {
     });
 
   function handleClickChallenge() {
-    let statChange = Math.floor(Math.random() * 4);
-    let ratingChange = Math.floor(Math.random() * 2);
+
     fetch(`/players/${playerId}/update`, {
         method: "PATCH",
         headers: {
@@ -39,13 +37,13 @@ function UserDetail({ allUsers, user }) {
             Accept: "application/json"
         },
         body: JSON.stringify({
-            pace: pace += statChange, 
-            shot: shot += statChange, 
-            pass: pass += statChange, 
-            dribble: dribble += statChange, 
-            defence: defence += statChange, 
-            physical: physical += statChange,
-            rating: rating += ratingChange
+            pace: pace += Math.floor(Math.random() * 4), 
+            shot: shot += Math.floor(Math.random() * 4), 
+            pass: pass += Math.floor(Math.random() * 4), 
+            dribble: dribble += Math.floor(Math.random() * 4), 
+            defence: defence += Math.floor(Math.random() * 4), 
+            physical: physical += Math.floor(Math.random() * 4),
+            rating: rating += Math.floor(Math.random() * 2)
         })
     })
     .then((r) => r.json())

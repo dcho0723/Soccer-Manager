@@ -18,7 +18,8 @@ function Home({ user, setPlayers, players, searchUserPlayer }) {
       .then((res) => res.json())
       .then((data) => setPlayers(data));
   }, [setPlayers]);
-  console.log(user.show_users_player)
+  // console.log(user.show_users_player)
+  // console.log(user.get_users_average_rating)
 
   function searchUserPlayer() {
     if (user.show_user_players_length === 0) {
@@ -27,6 +28,7 @@ function Home({ user, setPlayers, players, searchUserPlayer }) {
       return (
         <div>
           <h1>heres users player</h1>
+          <h1>Your Teams Average Rating {user.get_users_average_rating}</h1>
           <h1>{user.show_users_player["name"]}</h1>
           <h1>{user.show_users_player["dob"]}</h1>
           <p>{user.show_users_player["pace"]}</p>

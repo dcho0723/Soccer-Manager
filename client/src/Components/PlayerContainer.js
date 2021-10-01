@@ -1,12 +1,19 @@
 import React from "react";
 import PlayerCard from "./PlayerCard"
+import SearchBar from "./SearchBar";
+import { useState } from 'react'
 
 function PlayerContainer({players, user, teamData, setTeamData, addPlayersToTeam}) {
-//   console.log(players);
+  const [searchInput, setSearchInput] = useState("")
+  console.log(searchInput)
+
   return (
     <div>
-      <h1>hello</h1>
-      {players.map((player) => {
+
+      <SearchBar setSearchInput={setSearchInput}/>
+
+      {players.filter((player) => player.name.toLowerCase().includes(searchInput.toLowerCase()))
+      .map((player) => {
         return (
           <div key={player.id}>
             <PlayerCard

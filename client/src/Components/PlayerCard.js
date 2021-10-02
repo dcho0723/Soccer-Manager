@@ -44,6 +44,7 @@ function PlayerCard({
         <div>
           <h1>{name}</h1>
           <img src={image} />
+          <h2>Rating: {rating}</h2>
           <p>Diving: {pace}</p>
           <p>Handling: {shot}</p>
           <p>Kicking: {pass}</p>
@@ -55,6 +56,7 @@ function PlayerCard({
         <div>
           <h1>{name}</h1>
           <img src={image} />
+          <h2>Rating: {rating}</h2>
           <p>Pace: {pace}</p>
           <p>Shot: {shot}</p>
           <p>Pass: {pass}</p>

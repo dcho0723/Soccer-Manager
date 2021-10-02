@@ -3,22 +3,6 @@ import { Link } from "react-router-dom";
 import CreatePlayer from "./CreatePlayer";
 
 function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
-  //   const userPlayer = players.filter((player) => player.name === user.name);
-  //   console.log(userPlayer);
-  //   console.log(user.show_first_player)
-  //   const userPlayerMap = userPlayer.map((player) => {
-  //     return (<div key={player.id}>
-  //         <h1>{player.name}</h1>
-  //     </div>);
-  //   });
-  //   const userPlayerMap = user.show_first_player;
-  // useEffect(() => {
-  //   fetch("/me").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, [setUser, players]);
 
   useEffect(() => {
     fetch("/players")
@@ -32,7 +16,6 @@ function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
     } else {
       return (
         <div>
-          <h1>heres users player</h1>
           <h1>Your Teams Average Rating {user.get_users_average_rating}</h1>
           <h1>Name: {user.show_users_player_name}</h1>
           <h1>Rating: {user.show_users_player_rating}</h1>
@@ -50,7 +33,6 @@ function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
 
   return (
     <div>
-      <h1>hello in home</h1>
       {searchUserPlayer()}
       <Link to="/team">View Your Team</Link>
     </div>

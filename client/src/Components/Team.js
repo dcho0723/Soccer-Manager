@@ -2,13 +2,13 @@ import React from "react"
 import { useState, useEffect } from "react"
 import TeamCard from "./TeamCard"
 
-function Team({ teamData, user }) {
+function Team({ teamData, user, setTeamData }) {
 
     
     return(
         <>
         <h1>hello in team</h1>
-        <TeamCard teamData={teamData} />
+        <TeamCard teamData={teamData} setTeamData={setTeamData} />
         {/* {teamData.map((player) => {
             // console.log(player)
             return (

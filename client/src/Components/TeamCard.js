@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function TeamCard({ teamData }) {
-  //   function handleClick() {
-  //       console.log(user.id)
-  //       console.log(id)
-  /////
-  //  change name of params to player id aka id
-  ///
-  // need to delete player from join table where user.id and id(player) is equal
+function TeamCard({ teamData, setTeamData }) {
 
-  //   }
-  // console.log(teamData)
+  useEffect(() => {
+    fetch("/team")
+      .then((res) => res.json())
+      .then((data) => setTeamData(data));
+  }, []);
 
   let forwardPlayers = teamData.map((player) => {
     if (!player.bench && player.position == "Forward") {
@@ -74,11 +70,6 @@ function TeamCard({ teamData }) {
       );
     }
   });
-
-  function handleBenchClick(player) {
-    console.log("clicking bench button");
-    console.log(player);
-  }
 
   return (
     <div>

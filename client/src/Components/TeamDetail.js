@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-function TeamDetail({ teamData, fetchTeamPlayers }) {
+function TeamDetail({ teamData, fetchTeamPlayers, getTheData }) {
   const { id } = useParams();
   let history = useHistory();
 
@@ -11,12 +11,35 @@ function TeamDetail({ teamData, fetchTeamPlayers }) {
     });
     fetchTeamPlayers();
   }
+  let currentPlayerBench;
+ 
+
+  function handleBench(){
+    fetch(`/players/${id}/update`, {
+      method: "PATCH", 
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        bench: !currentPlayerBench
+      })
+    })
+    .then((r) => r.json())
+    .then(data => console.log(data))
+
+    getTheData()
+    fetchTeamPlayers()
+  }
+
   return (
     <div>
       <div>
         {teamData
           .filter((player) => player.id == id)
           .map((player) => {
+            currentPlayerBench = player.bench
+            console.log(currentPlayerBench)
             if (player.position == "Goalie") {
               return (
                 <div>
@@ -30,6 +53,7 @@ function TeamDetail({ teamData, fetchTeamPlayers }) {
                   <p>Speed: {player.defence}</p>
                   <p>Positioning: {player.physical}</p>
                   <button onClick={handleDelete}>Remove From Team</button>
+                  {player.bench ? <button onClick={handleBench}>Start Player</button>: <button onClick={handleBench}>Bench Player</button> }
                 </div>
               );
             } else {
@@ -45,6 +69,7 @@ function TeamDetail({ teamData, fetchTeamPlayers }) {
                   <p>Defence: {player.defence}</p>
                   <p>Physical: {player.physical}</p>
                   <button onClick={handleDelete}>Remove From Team</button>
+                  {player.bench ? <button onClick={handleBench}>Start Player</button>: <button onClick={handleBench}>Bench Player</button> }
                 </div>
               );
             }

@@ -26,7 +26,7 @@ function App() {
     fetch("/players")
       .then((res) => res.json())
       .then((data) => setPlayers(data));
-  }, [setPlayers]);
+  }, [setPlayers, setTeamData]);
 
   // fetch players for team
   useEffect(() => {
@@ -42,6 +42,7 @@ function App() {
       if (!response.ok) throw Error();
       const data = await response.json();
       setTeamData(data);
+      console.log(teamData)
     } catch (err) {
       console.log(err);
     }
@@ -134,7 +135,7 @@ function App() {
             />
           </Route>
           <Route exact path="/team">
-            <Team teamData={teamData} setTeamData={setTeamData} user={user} />
+            <Team teamData={teamData} user={user} setTeamData={setTeamData} />
           </Route>
           <Route exact path="/team/:id">
             <TeamDetail
@@ -142,6 +143,7 @@ function App() {
               user={user}
               setTeamData={setTeamData}
               fetchTeamPlayers={fetchTeamPlayers}
+              getTheData={getTheData}
             />
           </Route>
           <Route exact path="/welcome">

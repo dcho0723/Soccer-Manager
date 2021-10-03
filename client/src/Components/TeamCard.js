@@ -73,7 +73,6 @@ function TeamCard({ teamData, setTeamData }) {
 
   return (
     <div>
-      <h1>hello in team card</h1>
       <div>
         <h1>Forward Players</h1>
         {forwardPlayers}

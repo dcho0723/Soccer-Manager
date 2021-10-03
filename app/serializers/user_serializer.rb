@@ -6,36 +6,56 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def show_users_player
-    self.object.players.where(name: self.object.name)[0]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]
+    end
   end
 
   def show_users_player_name
-    self.object.players.where(name: self.object.name)[0]["name"]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["name"]
+    end
   end
   def show_users_player_dob
-    self.object.players.where(name: self.object.name)[0]["dob"]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["dob"]
+    end
   end
   def show_users_player_pace
-    self.object.players.where(name: self.object.name)[0]["pace"]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["pace"]
+    end
   end
 
   def show_users_player_shot
-    self.object.players.where(name: self.object.name)[0]["shot"]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["shot"]
+    end
   end
   def show_users_player_pass
-    self.object.players.where(name: self.object.name)[0]["pass"]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["pass"]
+    end
   end
   def show_users_player_dribble
-    self.object.players.where(name: self.object.name)[0]["dribble"]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["dribble"]
+    end
   end
   def show_users_player_defence
-    self.object.players.where(name: self.object.name)[0]["defence"]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["defence"]
+    end
   end
   def show_users_player_physical
-    self.object.players.where(name: self.object.name)[0]["physical"]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["physical"]
+    end
   end
   def show_users_player_rating
-    self.object.players.where(name: self.object.name)[0]["rating"]
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["rating"]
+    end
   end
 
   def get_users_average_rating

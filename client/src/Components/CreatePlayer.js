@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function CreatePlayer({ user, setPlayers, players, getTheData, addPlayersToTeam }) {
+function CreatePlayer({
+  user,
+  setPlayers,
+  players,
+  getTheData,
+  addPlayersToTeam,
+}) {
   const [dob, setDob] = useState("");
   const [country, setCountry] = useState("");
   const [image, setImage] = useState("");
@@ -14,60 +20,60 @@ function CreatePlayer({ user, setPlayers, players, getTheData, addPlayersToTeam 
   const [dribble, setDribble] = useState(0);
   const [defence, setDefence] = useState(0);
   const [physical, setPhysical] = useState(0);
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState([]);
 
-// console.log(user.players)
+  // console.log(user.players)
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/players/new" , {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            dob,
-            country,
-            image,
-            rating,
-            number,
-            position,
-            pace,
-            shot,
-            pass,
-            dribble,
-            defence,
-            physical,
-            name: user.name,
-            bench: true
-        })
+    fetch("/players/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        dob,
+        country,
+        image,
+        rating,
+        number,
+        position,
+        pace,
+        shot,
+        pass,
+        dribble,
+        defence,
+        physical,
+        name: user.name,
+        bench: true,
+      }),
     }).then((r) => {
-        if (r.ok) {
-            r.json().then((data) => {
-                setPlayers([...players, data])
-                //start our post to join table
-                fetch("/userplayer", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        user_id: user.id,
-                        player_id: data.id
-                    })
-                }).then((r) => {
-                    if (r.ok) {
-                        r.json().then(data => setPlayers(...players, data))
-                        getTheData()
-                        addPlayersToTeam()
-                        
-                        //figure out what to do here, right now, we are just console log created player. does it need to pushed to a state or what. if i update data. do i need to put it into state.
-                    }
-                })
-            })
-        } else {
-            r.json().then((data) => setErrors(data.errors))
-        }
-    })
+      if (r.ok) {
+        r.json().then((data) => {
+          setPlayers([...players, data]);
+          //start our post to join table
+          fetch("/userplayer", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              user_id: user.id,
+              player_id: data.id,
+            }),
+          }).then((r) => {
+            if (r.ok) {
+              r.json().then((data) => setPlayers(...players, data));
+              getTheData();
+              addPlayersToTeam();
+
+              //figure out what to do here, right now, we are just console log created player. does it need to pushed to a state or what. if i update data. do i need to put it into state.
+            }
+          });
+        });
+      } else {
+        r.json().then((data) => setErrors(data.errors));
+      }
+    });
   }
 
   return (
@@ -116,11 +122,15 @@ function CreatePlayer({ user, setPlayers, players, getTheData, addPlayersToTeam 
         </label>
         <label>
           Position
-          <input
-            type="text"
+          <select
             value={position}
             onChange={(e) => setPosition(e.target.value)}
-          />
+          >
+            <option value="Goalie">Goalie</option>
+            <option value="Defender">Defender</option>
+            <option value="Midfielder">Midfielder</option>
+            <option value="Forward">Forward</option>
+          </select>
         </label>
         <label>
           Pace

@@ -55,6 +55,7 @@ function UserDetail({ allUsers, user }) {
       {allUsers
         .filter((otherUser) => otherUser.id == id)
         .map((otherUser) => {
+            if(otherUser.players.length > 0) {
           return (
             <div key={otherUser.id}>
               <h1>Name: {otherUser.name}</h1>
@@ -67,12 +68,20 @@ function UserDetail({ allUsers, user }) {
                   <div>
                     <h1>{players.name}</h1>
                     <h1>{players.rating}</h1>
+                    <img src={players.image} />
                   </div>
                 );
               })}
             </div>
           );
-        })}
+            } else {
+                return (
+                    <h1>{otherUser.name} hasn't created a team yet</h1>
+                )
+            }
+        }
+
+        )}
     </div>
   );
 }

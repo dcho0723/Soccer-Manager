@@ -25,16 +25,18 @@ function SignUp({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        // r.json().then((user) => setUser(user));
+        // history.push()
       } else {
         r.json().then((data) => setErrors(data.errors));
       }
     });
-    // setUsername("")
-    // setPassword("")
-    // setPasswordConfirmation("")
-    // setName("")
-    window.alert("Thanks for creating User")
+    setUsername("")
+    setPassword("")
+    setPasswordConfirmation("")
+    setName("")
+    // e.target.reset()
+    window.alert("Thank You For Creating An Account")
   }
 
   //hiding sign up button

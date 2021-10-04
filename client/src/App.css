@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+
+#loginForm {
+  text-align: center;
+  margin-top: 100px
+
+}
+input {
+  margin-top: 5px;
+
+}
+
+.submitButton{
+  margin-top: 10px;
+}
+#signUpButton{
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+}
+
+.signUp{
+  text-align: center;
+}
+#showForm{
+text-align: center;
+}
+
+.signUp label {
+  display: block;
+  position: relative;
+
+}
+.signUp input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 25%;
+  border-radius: 7px;
+  text-align: center
+}

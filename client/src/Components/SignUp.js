@@ -9,7 +9,7 @@ function SignUp({ setUser }) {
   const [errors, setErrors] = useState([]);
   let history = useHistory();
 
-  //creating new user
+
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/signup", {
@@ -28,6 +28,8 @@ function SignUp({ setUser }) {
         // r.json().then((user) => setUser(user));
         // history.push()
         window.alert("Thank You For Creating An Account")
+        ShowAndHide()
+        setErrors([])
       } else {
         r.json().then((data) => setErrors(data.errors));
       }
@@ -43,15 +45,24 @@ function SignUp({ setUser }) {
   //hiding sign up button
   function ShowAndHide() {
     let x = document.getElementById("showForm");
+    let y = document.getElementById("loginForm")
     let b = document.getElementById("signUpButton");
     if (x.style.display === "none") {
       x.style.display = "block";
       b.style.display = "none";
+      y.style.display = "none";
+    } else if (y.style.display === "none") {
+      y.style.display = "block";
+      x.style.display = "none"
+      b.style.display = "inline-block";
+      b.style.textAlign = "center";
+      b.style.alignItems = "flex-start";
     }
   }
 
   return (
-    <div>
+    <div className="signUp">
+      <h4>Don't Have An Account? </h4>
       <button id="signUpButton" onClick={ShowAndHide}>
         Sign Up
       </button>
@@ -77,6 +88,7 @@ function SignUp({ setUser }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <br/>
         <label htmlFor="password">Password: </label>
         <input
           type="password"
@@ -85,6 +97,7 @@ function SignUp({ setUser }) {
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
+        <br/>
         <label htmlFor="password">Password Confirmation: </label>
         <input
           type="password"
@@ -93,6 +106,7 @@ function SignUp({ setUser }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
+        <br/>
         <label htmlFor="name">Name :</label>
         <input
           type="text"
@@ -100,7 +114,8 @@ function SignUp({ setUser }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <button type="submit">Sign Up</button>
+        <br/>
+        <button type="submit" className="submitButton">Sign Up</button>
       </form>
     </div>
   );

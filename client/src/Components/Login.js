@@ -6,7 +6,6 @@ function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password
   const [username, setUsername] = useState("");
   // const [password, setPassword] = useState("");
   let history = useHistory()
-  
 
   function handleSubmit(e) {
       e.preventDefault();
@@ -30,9 +29,8 @@ function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password
       })
   }
 
-  //need to fix users rendewr when login, does not render users first player correctlty. 
   return (
-    <div>
+    <div id="loginForm">
       <form onSubmit={(e) => handleSubmit(e)}>
         <h3>Please Sign In</h3>
         <label htmlFor="username">UserName: </label>
@@ -43,6 +41,7 @@ function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <br/>
         <label htmlFor="password">Password:{" "}</label>
         <input
           type="password"
@@ -50,9 +49,11 @@ function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          style={{marginLeft: "7px"}}
         />
         {/* <Link to="/home" > */}
-          <button type="submit">
+        <br/>
+          <button type="submit" className="submitButton">
             LogIn
           </button>
       </form>

@@ -22,11 +22,11 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find_by(id: session[:user_id])
+        user = User.find(params[:id])
 
-        user.update(user_params)
+        user.update!(user_params)
         # byebug
-        render json: user, status: :accepted
+        render json: user
     end
 
     def team
@@ -36,6 +36,6 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit(:user, :username, :password, :password_confirmation, :name, :favoriteclub, :id)
+        params.permit(:user, :username, :password, :password_confirmation, :name, :favoriteclub)
     end
 end

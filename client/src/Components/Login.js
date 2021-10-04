@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom"
 
 
-function Login({ setUser, addPlayersToTeam, fetchAllUsers }) {
+function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password }) {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
   let history = useHistory()
+  
 
   function handleSubmit(e) {
       e.preventDefault();

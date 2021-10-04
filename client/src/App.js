@@ -20,6 +20,8 @@ function App() {
   const [teamData, setTeamData] = useState([]);
   let history = useHistory();
   const [allUsers, setAllUsers] = useState([]);
+  const [password, setPassword] = useState("");
+  // const [club, setClub] = useState("");
 
   // fetch all players
   useEffect(() => {
@@ -99,6 +101,7 @@ function App() {
   function onLogOut() {
     setPlayers([]);
     setTeamData([]);
+    setPassword("")
     setUser(false);
   }
 
@@ -147,7 +150,7 @@ function App() {
             />
           </Route>
           <Route exact path="/welcome">
-            <Welcome user={user} />
+            <Welcome user={user} password={password} />
           </Route>
         </Switch>
       </div>
@@ -158,6 +161,8 @@ function App() {
               setUser={setUser}
               addPlayersToTeam={addPlayersToTeam}
               fetchAllUsers={fetchAllUsers}
+              setPassword={setPassword}
+              password={password}
             />
             <SignUp setUser={setUser} />
           </Route>

@@ -112,3 +112,7 @@ text-align: center;
   /* margin-top: 150px */
 }
 
+.homePage {
+  align-items: center;
+  text-align: center;
+}

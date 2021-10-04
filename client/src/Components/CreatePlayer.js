@@ -22,7 +22,7 @@ function CreatePlayer({
   const [physical, setPhysical] = useState(0);
   const [errors, setErrors] = useState([]);
 
-  // console.log(user.players)
+
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/players/new", {
@@ -65,13 +65,13 @@ function CreatePlayer({
               r.json().then((data) => setPlayers(...players, data));
               getTheData();
               addPlayersToTeam();
-
-              //figure out what to do here, right now, we are just console log created player. does it need to pushed to a state or what. if i update data. do i need to put it into state.
             }
           });
         });
       } else {
-        r.json().then((data) => setErrors(data.errors));
+        r.json().then((data) => {
+          setErrors(data.errors) 
+          console.log(data.errors)});
       }
     });
   }
@@ -79,6 +79,15 @@ function CreatePlayer({
   return (
     <div>
       <h1>in create player</h1>
+      {errors.length > 0 && (
+        <div style={{ color: "red" }}>
+          {errors.map((error) => (
+            <p key={error} style={{ margin: "5px" }}>
+              {error}
+            </p>
+          ))}
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <label>
           Date of Birth
@@ -87,6 +96,7 @@ function CreatePlayer({
             value={dob}
             onChange={(e) => setDob(e.target.value)}
           />
+          <br/>
         </label>
         <label>
           Country
@@ -126,6 +136,7 @@ function CreatePlayer({
             value={position}
             onChange={(e) => setPosition(e.target.value)}
           >
+            <option value=""></option>
             <option value="Goalie">Goalie</option>
             <option value="Defender">Defender</option>
             <option value="Midfielder">Midfielder</option>

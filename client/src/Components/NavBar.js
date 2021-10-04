@@ -14,11 +14,13 @@ function NavBar({ onLogOut, user }) {
   return (
     <div>
       {user ? (
-        <nav>
-          <NavLink to="/home">Home</NavLink>
-          <NavLink to="/players">Search For Players</NavLink>
-          <NavLink to="/users">Search For Users</NavLink>
-          <button onClick={handleLogoutClick}>Log Out</button>
+        <nav className="navBar">
+          <NavLink style={{textDecoration: "none"}} to="/home"> Home </NavLink>
+           |
+          <NavLink style={{textDecoration: "none"}} to="/players"> Search For Players </NavLink>
+           |
+          <NavLink style={{textDecoration: "none"}} to="/users"> Search For Users </NavLink>
+          <button onClick={handleLogoutClick} className="logoutBtn">Log Out</button>
         </nav>
       ) : null}
     </div>

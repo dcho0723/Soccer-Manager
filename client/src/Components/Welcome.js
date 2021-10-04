@@ -26,25 +26,24 @@ function Welcome({ user }) {
     "Newcastle",
     "Norwich",
   ];
-  console.log(user.club);
+  console.log(user.favoriteclub);
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log(club);
-    console.log(user.club);
-    fetch("/users/update", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        club: club,
-      }),
+    console.log(user.favoriteclub);
+    fetch(`/users/${user.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        },
+        body: JSON.stringify({
+            favoriteclub: club
+        }),
     })
-      .then((r) => r.json())
-      .then((data) => console.log(data));
-      
+    .then((r) => r.json())
+    .then((data) => console.log(data))
   }
 
   function chooseClub() {

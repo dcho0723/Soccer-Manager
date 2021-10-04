@@ -147,7 +147,7 @@ function App() {
             />
           </Route>
           <Route exact path="/welcome">
-            <Welcome user={user}/>
+            <Welcome user={user} />
           </Route>
         </Switch>
       </div>

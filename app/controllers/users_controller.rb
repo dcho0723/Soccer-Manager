@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create]
+    skip_before_action :authorize, only: [:create, :update]
     wrap_parameters format: []
 
     def index
@@ -36,6 +36,6 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit(:user, :username, :password, :password_confirmation, :name, :club, :id)
+        params.permit(:user, :username, :password, :password_confirmation, :name, :favoriteclub, :id)
     end
 end

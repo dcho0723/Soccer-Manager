@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     resources :players
     resources :users, only: [:show, :index, :update]
 
-    patch "/users/update", to: "users#update"
 
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"

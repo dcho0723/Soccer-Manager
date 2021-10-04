@@ -46,9 +46,9 @@ function PlayerCard({
       {position == "Goalie" ? (
         <div className="playerCard">
           <h1>{name}</h1>
+          <h2>Rating: {rating}</h2>
           <img src={image} className="playerImg" />
           <h3>Position: {position}</h3>
-          <h2>Rating: {rating}</h2>
           <p>Diving: {pace}</p>
           <p>Handling: {shot}</p>
           <p>Kicking: {pass}</p>
@@ -60,9 +60,10 @@ function PlayerCard({
       ) : (
         <div className="playerCard">
           <h1>{name}</h1>
+
           <img src={image} className="playerImg" />
-          <h3>Position: {position}</h3>
           <h2>Rating: {rating}</h2>
+          <p>Position: {position}</p>
           <p>Pace: {pace}</p>
           <p>Shot: {shot}</p>
           <p>Pass: {pass}</p>

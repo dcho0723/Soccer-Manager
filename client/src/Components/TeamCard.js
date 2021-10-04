@@ -141,20 +141,3 @@ function TeamCard({ teamData, setTeamData }) {
 }
 
 export default TeamCard;
-
-// dob,
-// club,
-// country,
-// image,
-// name,
-// rating,
-// position,
-// pace,
-// shot,
-// pass,
-// dribble,
-// defence,
-// physical,
-// bench,
-// id,
-// user

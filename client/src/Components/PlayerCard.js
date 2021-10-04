@@ -33,17 +33,20 @@ function PlayerCard({
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((data) => setTeamData(...[teamData], [data.player]));
-        addPlayersToTeam();
+        r.json().then((data) => {
+          setTeamData(...[teamData], [data.player]);
+          addPlayersToTeam();
+          window.alert(`${data.player.name} added to your team`);
+        });
       }
     });
   }
   return (
-    <div>
+    <>
       {position == "Goalie" ? (
-        <div>
+        <div className="playerCard">
           <h1>{name}</h1>
-          <img src={image} />
+          <img src={image} className="playerImg" />
           <h3>Position: {position}</h3>
           <h2>Rating: {rating}</h2>
           <p>Diving: {pace}</p>
@@ -52,11 +55,12 @@ function PlayerCard({
           <p>Reflexes: {dribble}</p>
           <p>Speed: {defence}</p>
           <p>Positioning: {physical}</p>
+          <button onClick={handleClick}>Add To Your Team</button>
         </div>
       ) : (
-        <div>
+        <div className="playerCard">
           <h1>{name}</h1>
-          <img src={image} />
+          <img src={image} className="playerImg" />
           <h3>Position: {position}</h3>
           <h2>Rating: {rating}</h2>
           <p>Pace: {pace}</p>
@@ -65,11 +69,10 @@ function PlayerCard({
           <p>Dribble: {dribble}</p>
           <p>Defence: {defence}</p>
           <p>Physical: {physical}</p>
+          <button onClick={handleClick}>Add To Your Team</button>
         </div>
       )}
-
-      <button onClick={handleClick}>Add To Your Team</button>
-    </div>
+    </>
   );
 }
 

@@ -21,7 +21,7 @@ function CreatePlayer({
   const [defence, setDefence] = useState(0);
   const [physical, setPhysical] = useState(0);
   const [errors, setErrors] = useState([]);
-
+  let history = useHistory()
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -65,20 +65,21 @@ function CreatePlayer({
               r.json().then((data) => setPlayers(...players, data));
               getTheData();
               addPlayersToTeam();
+              e.target.reset()
+              window.alert("Player Created!")
+              history.push('/home')
             }
           });
         });
       } else {
-        r.json().then((data) => {
-          setErrors(data.errors) 
-          console.log(data.errors)});
+        r.json().then((data) => setErrors(data.errors));
       }
     });
   }
 
   return (
-    <div>
-      <h1>in create player</h1>
+    <div className="createPlayer">
+      <h1>Customize Your Own Player</h1>
       {errors.length > 0 && (
         <div style={{ color: "red" }}>
           {errors.map((error) => (
@@ -88,7 +89,7 @@ function CreatePlayer({
           ))}
         </div>
       )}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="createForm">
         <label>
           Date of Birth
           <input
@@ -96,7 +97,7 @@ function CreatePlayer({
             value={dob}
             onChange={(e) => setDob(e.target.value)}
           />
-          <br/>
+          <br />
         </label>
         <label>
           Country
@@ -105,6 +106,7 @@ function CreatePlayer({
             value={country}
             onChange={(e) => setCountry(e.target.value)}
           />
+          <br />
         </label>
         <label>
           Image
@@ -113,22 +115,7 @@ function CreatePlayer({
             value={image}
             onChange={(e) => setImage(e.target.value)}
           />
-        </label>
-        <label>
-          Rating
-          <input
-            type="number"
-            value={rating}
-            onChange={(e) => setRating(e.target.value)}
-          />
-        </label>
-        <label>
-          Number
-          <input
-            type="integer"
-            value={number}
-            onChange={(e) => setNumber(e.target.value)}
-          />
+          <br />
         </label>
         <label>
           Position
@@ -142,6 +129,25 @@ function CreatePlayer({
             <option value="Midfielder">Midfielder</option>
             <option value="Forward">Forward</option>
           </select>
+          <br />
+        </label>
+        <label>
+          Number
+          <input
+            type="integer"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+          />
+          <br />
+        </label>
+        <label>
+          Rating
+          <input
+            type="integer"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+          />
+          <br />
         </label>
         <label>
           Pace
@@ -150,6 +156,7 @@ function CreatePlayer({
             value={pace}
             onChange={(e) => setPace(e.target.value)}
           />
+          <br />
         </label>
         <label>
           Shot
@@ -158,6 +165,7 @@ function CreatePlayer({
             value={shot}
             onChange={(e) => setShot(e.target.value)}
           />
+          <br />
         </label>
         <label>
           Pass
@@ -166,6 +174,7 @@ function CreatePlayer({
             value={pass}
             onChange={(e) => setPass(e.target.value)}
           />
+          <br />
         </label>
         <label>
           Dribble
@@ -174,6 +183,7 @@ function CreatePlayer({
             value={dribble}
             onChange={(e) => setDribble(e.target.value)}
           />
+          <br />
         </label>
         <label>
           Defence
@@ -182,6 +192,7 @@ function CreatePlayer({
             value={defence}
             onChange={(e) => setDefence(e.target.value)}
           />
+          <br />
         </label>
         <label>
           Physical
@@ -190,13 +201,14 @@ function CreatePlayer({
             value={physical}
             onChange={(e) => setPhysical(e.target.value)}
           />
+          <br />
         </label>
-        <input type="submit" value="Submit" />
+        <button type="submit" className="createSubmit">
+          Create
+        </button>
       </form>
     </div>
   );
 }
 
 export default CreatePlayer;
-
-//didnt add name and bench. should be set as default

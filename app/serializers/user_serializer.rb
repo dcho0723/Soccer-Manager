@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :password_digest, :name, :players, :favoriteclub, :show_user_players_length, :show_users_player, :players, :get_users_average_rating, :show_users_player_name, :show_users_player_dob, :show_users_player_pace, :show_users_player_dribble, :show_users_player_defence, :show_users_player_physical, :show_users_player_rating, :show_users_player_shot, :show_users_player_pass
+  attributes :id, :username, :password_digest, :name, :players, :favoriteclub, :show_user_players_length, :show_users_player, :players, :get_users_average_rating, :show_users_player_name, :show_users_player_dob, :show_users_player_pace, :show_users_player_dribble, :show_users_player_defence, :show_users_player_physical, :show_users_player_rating, :show_users_player_shot, :show_users_player_pass, :show_users_player_image
 
   def show_user_players_length
     self.object.players.length
@@ -55,6 +55,11 @@ class UserSerializer < ActiveModel::Serializer
   def show_users_player_rating
     if self.object.players.length != 0
       self.object.players.where(name: self.object.name)[0]["rating"]
+    end
+  end
+  def show_users_player_image
+    if self.object.players.length != 0
+      self.object.players.where(name: self.object.name)[0]["image"]
     end
   end
 

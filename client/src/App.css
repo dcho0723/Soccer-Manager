@@ -116,3 +116,80 @@ text-align: center;
   align-items: center;
   text-align: center;
 }
+
+.createPlayer{
+  align-items: center;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.createForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+}
+
+.createForm label {
+  display: block;
+  position: relative;
+
+}
+.createForm input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  border-radius: 7px;
+  text-align: center
+}
+
+.createSubmit{
+  width: 200px
+
+}
+
+.userPlayer {
+  text-align: center;
+}
+
+.playerContainer{
+  width: 100%;
+  /* justify-content: center;
+  align-items: center;
+  margin: auto;
+  display: flex;
+  margin-left: auto; */
+  /* position: relative; */
+
+}
+
+.playerCard{
+
+  background-color: rgba(170, 180, 194, 0.253);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  float: left; 
+  width: 400px;
+  height: 500px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  position: relative;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  border: 2px solid black;
+}
+
+.playerImg{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin-left: 70px;
+  margin-right: 75px;
+  width: 45%;
+}

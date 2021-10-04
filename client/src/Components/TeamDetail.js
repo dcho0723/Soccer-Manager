@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-function TeamDetail({ teamData, fetchTeamPlayers, getTheData }) {
+function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
   const { id } = useParams();
   let history = useHistory();
 
@@ -52,11 +52,12 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData }) {
                   <p>Reflexes: {player.dribble}</p>
                   <p>Speed: {player.defence}</p>
                   <p>Positioning: {player.physical}</p>
-                  <button onClick={handleDelete}>Remove From Team</button>
+                  {player.name != user.name ? <button onClick={handleDelete}>Remove From Team</button> : null}
                   {player.bench ? <button onClick={handleBench}>Start Player</button>: <button onClick={handleBench}>Bench Player</button> }
                 </div>
               );
             } else {
+
               return (
                 <div>
                   <h1>{player.name}</h1>
@@ -68,7 +69,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData }) {
                   <p>Dribble: {player.dribble}</p>
                   <p>Defence: {player.defence}</p>
                   <p>Physical: {player.physical}</p>
-                  <button onClick={handleDelete}>Remove From Team</button>
+                  {player.name != user.name ? <button onClick={handleDelete}>Remove From Team</button> : null}
                   {player.bench ? <button onClick={handleBench}>Start Player</button>: <button onClick={handleBench}>Bench Player</button> }
                 </div>
               );

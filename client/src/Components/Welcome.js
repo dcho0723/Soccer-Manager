@@ -34,7 +34,7 @@ function Welcome({ user, password }) {
     )
       .then((r) => r.json())
       .then((data) => setLeagueData(data));
-  }, []);
+  }, [user, club]);
 
   function handleSubmit(e) {
     e.preventDefault();

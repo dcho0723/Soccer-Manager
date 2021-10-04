@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom"
 
 
-function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password }) {
+function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password, getTheData }) {
   const [username, setUsername] = useState("");
   // const [password, setPassword] = useState("");
   let history = useHistory()
@@ -21,6 +21,7 @@ function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password
               r.json().then((user) => setUser(user));
               addPlayersToTeam()
               fetchAllUsers()
+              getTheData()
               history.push('/welcome')
               
           } else {
@@ -54,8 +55,6 @@ function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password
           <button type="submit">
             LogIn
           </button>
-        {/* </Link> */}
-        {/* <button type="submit" onClick="window.location.href='https://localhost:4000/home';">LogIn</button> */}
       </form>
     </div>
   );

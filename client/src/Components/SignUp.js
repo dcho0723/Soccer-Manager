@@ -27,6 +27,7 @@ function SignUp({ setUser }) {
       if (r.ok) {
         // r.json().then((user) => setUser(user));
         // history.push()
+        window.alert("Thank You For Creating An Account")
       } else {
         r.json().then((data) => setErrors(data.errors));
       }
@@ -35,8 +36,8 @@ function SignUp({ setUser }) {
     setPassword("")
     setPasswordConfirmation("")
     setName("")
-    // e.target.reset()
-    window.alert("Thank You For Creating An Account")
+
+    
   }
 
   //hiding sign up button
@@ -68,7 +69,6 @@ function SignUp({ setUser }) {
         id="showForm"
         style={{ display: "none" }}
       >
-        {/* <h1>Sign Up</h1> */}
         <label htmlFor="username">Username: </label>
         <input
           type="text"

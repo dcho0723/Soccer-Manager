@@ -21,7 +21,7 @@ function App() {
   let history = useHistory();
   const [allUsers, setAllUsers] = useState([]);
   const [password, setPassword] = useState("");
-  // const [club, setClub] = useState("");
+
 
   // fetch all players
   useEffect(() => {
@@ -108,7 +108,7 @@ function App() {
   return (
     <div>
       <div>
-        <NavBar onLogOut={onLogOut} />
+        <NavBar onLogOut={onLogOut} user={user}/>
         <Switch>
           <Route exact path="/home">
             <Home user={user} setUser={setUser} players={players} setPlayers={setPlayers} />
@@ -163,6 +163,7 @@ function App() {
               fetchAllUsers={fetchAllUsers}
               setPassword={setPassword}
               password={password}
+              getTheData={getTheData}
             />
             <SignUp setUser={setUser} />
           </Route>

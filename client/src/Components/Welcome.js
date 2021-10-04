@@ -107,11 +107,13 @@ function Welcome({ user, password }) {
       );
     } else {
       return (
-        <div>
+        <div className="welcomeScreen">
+          <h2>Let's Get Started</h2>
           <form onSubmit={handleSubmit}>
-            <label>
-              Choose Your Favorite Club
-              <select value={club} onChange={(e) => setClub(e.target.value)}>
+            <label style={{marginRight: "5px"}}>
+              Please Choose Your Favorite Club 
+              <select style={{marginLeft: "10px"}} value={club} onChange={(e) => setClub(e.target.value)}>
+                <br/>
                 {soccerClubs.map((clubs) => (
                   <option value={clubs}>{clubs}</option>
                 ))}
@@ -125,8 +127,9 @@ function Welcome({ user, password }) {
   }
 
   return (
-    <div>
-      <h1>hello in welcome</h1>
+    <div className="welcomeScreen">
+      <h1>Welcome To FutManager</h1>
+      {/* <h3></h3> */}
       {chooseClub()}
     </div>
   );

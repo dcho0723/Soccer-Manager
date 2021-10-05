@@ -174,7 +174,7 @@ text-align: center;
   flex-wrap: wrap;
   float: left; 
   width: 400px;
-  height: 500px;
+  height: 600px;
   padding-top: 5px;
   padding-left: 5px;
   padding-bottom: 5px;
@@ -186,10 +186,37 @@ text-align: center;
 }
 
 .playerImg{
-  display: block;
+  /* display: block; */
   align-items: center;
   justify-content: center;
-  margin-left: 70px;
+  margin-left: 75px;
   margin-right: 75px;
   width: 45%;
+}
+
+.ratingName{
+  margin-top: 0px;
+  margin-right: 130px;
+  margin-left: 130px;
+}
+
+.playerName{
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.playerPosition{
+  margin-bottom: 0px;
+}
+
+.goalieStat {
+  margin-right: 12px
+}
+.playerStat {
+  margin-right: 20px
+}
+
+.playerButton {
+  padding-right: 80px;
+  padding-left: 80px;
 }

@@ -45,32 +45,47 @@ function PlayerCard({
     <>
       {position == "Goalie" ? (
         <div className="playerCard">
-          <h1>{name}</h1>
-          <h2>Rating: {rating}</h2>
-          <img src={image} className="playerImg" />
-          <h3>Position: {position}</h3>
-          <p>Diving: {pace}</p>
-          <p>Handling: {shot}</p>
-          <p>Kicking: {pass}</p>
-          <p>Reflexes: {dribble}</p>
-          <p>Speed: {defence}</p>
-          <p>Positioning: {physical}</p>
-          <button onClick={handleClick}>Add To Your Team</button>
+          <h1 className="playerName">{name}</h1>
+          <h2 className="ratingName">Rating: {rating}</h2>
+          <div style={{ textAlign: "center" }}>
+            <img src={image} className="playerImg" />
+            <h3 className="playerPosition">Position: {position}</h3>
+          </div>
+          <div className="goalieStat">
+            <p>Diving: {pace}</p>
+            <p>Handling: {shot}</p>
+            <p>Kicking: {pass}</p>
+          </div>
+          <div>
+            <p>Reflexes: {dribble}</p>
+            <p>Speed: {defence}</p>
+            <p>Positioning: {physical}</p>
+          </div>
+          <div className="playerButton">
+            <button onClick={handleClick}>Add To Your Team</button>
+          </div>
         </div>
       ) : (
         <div className="playerCard">
-          <h1>{name}</h1>
-
-          <img src={image} className="playerImg" />
-          <h2>Rating: {rating}</h2>
-          <p>Position: {position}</p>
-          <p>Pace: {pace}</p>
-          <p>Shot: {shot}</p>
-          <p>Pass: {pass}</p>
-          <p>Dribble: {dribble}</p>
-          <p>Defence: {defence}</p>
-          <p>Physical: {physical}</p>
-          <button onClick={handleClick}>Add To Your Team</button>
+          <h1 className="playerName">{name}</h1>
+          <h2 className="ratingName">Rating: {rating}</h2>
+          <div style={{ textAlign: "center" }}>
+            <img src={image} className="playerImg" />
+            <h3 className="playerPosition">Position: {position}</h3>
+          </div>
+          <div className="playerStat">
+            <p>Pace: {pace}</p>
+            <p>Shot: {shot}</p>
+            <p>Pass: {pass}</p>
+          </div>
+          <div>
+            <p>Dribble: {dribble}</p>
+            <p>Defence: {defence}</p>
+            <p>Physical: {physical}</p>
+          </div>
+          <div className="playerButton">
+            <button onClick={handleClick}>Add To Your Team</button>
+          </div>
         </div>
       )}
     </>

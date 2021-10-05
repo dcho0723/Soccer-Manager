@@ -1,0 +1,57 @@
+
+.soccerField {
+  /* background-image: url("http://i.imgur.com/IzIbcen.jpg"); */
+  background-image: url("https://images.mlssoccer.com/image/private/t_q-best/prd-league/piqx8hn8s29ysdnxxydx.jpg");
+  /* background-image: url("https://pbs.twimg.com/media/DG9CaHdXYAEmLw5.jpg"); */
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.fieldPlayers {
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    margin-left: auto;
+}
+
+.smallPlayerImg {
+    width: 50%
+}
+.cardBorder{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.smallDivPlayer{
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    background-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+
+}
+.benchPlayers {
+    height: 200px;
+    margin: auto;
+    white-space: nowrap;
+    bottom: 0;
+    overflow-x: scroll;
+    /* overflow-y: hidden; */
+}
+
+.smallBenchPlayer{
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    background-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}

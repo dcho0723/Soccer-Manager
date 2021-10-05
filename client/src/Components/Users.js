@@ -54,7 +54,7 @@ function Users({ user, allUsers }) {
                       <p>Speed: {users.show_users_player.defence}</p>
                       <p>Positioning: {users.show_users_player.physical}</p>
                     </div>
-                    <Link to={`/users/${users.id}`}>View {users.name}'s Team</Link>
+                    <Link className="linkToUserTeam"to={`/users/${users.id}`}>View {users.name}'s Team</Link>
                   </div>
                 ) : (
                   <div className="playerCard">
@@ -83,7 +83,7 @@ function Users({ user, allUsers }) {
                       <p>Defence: {users.show_users_player.defence}</p>
                       <p>Physical: {users.show_users_player.physical}</p>
                     </div>
-                    <Link to={`/users/${users.id}`}>View {users.name}'s Team</Link>
+                    <Link className="linkToUserTeam" to={`/users/${users.id}`}>View {users.name}'s Team</Link>
                   </div>
                 )}
                 {/* <Link to={`/users/${users.id}`}>View {users.name}'s Team</Link> */}
@@ -92,8 +92,8 @@ function Users({ user, allUsers }) {
           } else {
             return (
               <div className="playerCard">
-                <h1 className="playerName">{users.name}</h1>
-                <h3>{users.name} has not created a player yet</h3>
+                <h1 className="playerName" style={{marginLeft: "30px", marginRight: "30px"}}>{users.name}</h1>
+                <h3 className="noTeamMessage">{users.name} has not created a player yet</h3>
                 <Link to={`/users/${users.id}`}>View {users.name}'s Team</Link>
               </div>
             );

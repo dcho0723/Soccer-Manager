@@ -13,6 +13,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -156,11 +157,11 @@ text-align: center;
 
 .playerContainer{
   width: 100%;
-  /* justify-content: center;
-  align-items: center;
-  margin: auto;
-  display: flex;
-  margin-left: auto; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* margin: auto; */
+  /* display: inline-flex;  */
+  /* margin-left: auto;  */
   /* position: relative; */
 
 }
@@ -241,4 +242,15 @@ text-align: center;
 .playerButton {
   padding-right: 80px;
   padding-left: 80px;
+}
+
+.linkToUserTeam{
+  padding-left: 80px;
+  padding-right: 80px;
+  text-decoration: none;
+}
+
+.noTeamMessage{
+  padding-left: 40px;
+  padding-right: 40px;
 }

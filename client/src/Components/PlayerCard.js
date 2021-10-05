@@ -42,7 +42,7 @@ function PlayerCard({
     });
   }
   return (
-    <>
+    <div className="player">
       {position == "Goalie" ? (
         <div className="playerCard">
           <h1 className="playerName">{name}</h1>
@@ -88,7 +88,7 @@ function PlayerCard({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

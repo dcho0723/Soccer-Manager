@@ -94,6 +94,8 @@ function App() {
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+      } else{
+        history.push('/')
       }
     });
   }, [setUser, players]);
@@ -105,9 +107,6 @@ function App() {
     setUser(false);
   }
 
-  if (!user) {
-    history.push('/')
-  }
 
   return (
     <>

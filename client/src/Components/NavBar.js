@@ -19,7 +19,7 @@ function NavBar({ onLogOut, user }) {
            |
           <NavLink style={{textDecoration: "none"}} to="/players"> Search For Players </NavLink>
            |
-          <NavLink style={{textDecoration: "none"}} to="/users"> Search For Users </NavLink>
+          <NavLink style={{textDecoration: "none"}} to="/users"> Challenge</NavLink>
           <button onClick={handleLogoutClick} className="logoutBtn">Log Out</button>
         </nav>
       ) : null}

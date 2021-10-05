@@ -135,7 +135,7 @@ function App() {
               <Users user={user} allUsers={allUsers} />
             </Route>
             <Route exact path="/users/:id">
-              <UserDetail allUsers={allUsers} user={user} />
+              <UserDetail allUsers={allUsers} user={user} getTheData={getTheData}/>
             </Route>
             <Route exact path="/createplayer">
               <CreatePlayer

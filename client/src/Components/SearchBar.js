@@ -14,7 +14,6 @@ function SearchBar({ setSearchInput }) {
         <div className ='searchBar'>
             <form onChange={handleSubmit} >
                 <input className='searchTab' type="text" placeholder="Search For Players" onChange={(e) => setOnSearchValue(e.target.value)}/>
-                {/* <button style={{marginLeft: '5px', padding: '5px 10px 5px 10px', fontSize: '16px'}} className="btn submit-btn" type="submit">Search</button> */}
             </form>
         </div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-function UserDetail({ allUsers, user }) {
+function UserDetail({ allUsers, user, getTheData }) {
   const { id } = useParams();
   let history = useHistory();
 
@@ -89,7 +89,10 @@ function UserDetail({ allUsers, user }) {
           }),
         })
           .then((r) => r.json())
-          .then((data) => console.log(data));
+          .then((data) => {
+            console.log(data)
+            getTheData()
+          });
       }
       function losingPatch() {
         fetch(`/players/${playerId}/update`, {
@@ -109,7 +112,10 @@ function UserDetail({ allUsers, user }) {
           }),
         })
           .then((r) => r.json())
-          .then((data) => console.log(data));
+          .then((data) => {
+            console.log(data)
+            getTheData()
+          });
       }
 
   return (
@@ -125,7 +131,6 @@ function UserDetail({ allUsers, user }) {
                   {otherUser.name} Teams Average Rating {userAverage}
                 </p>
                 <button onClick={handleClickChallenge}>Challenge?</button>
-                {/* <button onClick={test}>test?</button> */}
                 {otherUser.players.map((players) => {
                   return (
                     <div>

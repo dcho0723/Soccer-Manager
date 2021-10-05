@@ -7,7 +7,7 @@ function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
   //   fetch("/players")
   //     .then((res) => res.json())
   //     .then((data) => setPlayers(data));
-  // }, [setPlayers]);
+  // }, []);
 
   function searchUserPlayer() {
     if (user.show_user_players_length === 0) {

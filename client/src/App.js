@@ -22,7 +22,6 @@ function App() {
   const [allUsers, setAllUsers] = useState([]);
   const [password, setPassword] = useState("");
 
-
   // fetch all players
   useEffect(() => {
     fetch("/players")
@@ -44,7 +43,7 @@ function App() {
       if (!response.ok) throw Error();
       const data = await response.json();
       setTeamData(data);
-      console.log(teamData)
+      console.log(teamData);
     } catch (err) {
       console.log(err);
     }
@@ -61,6 +60,7 @@ function App() {
       console.log(err);
     }
   };
+  console.log(user);
 
   useEffect(() => {
     fetch("/users")
@@ -101,77 +101,85 @@ function App() {
   function onLogOut() {
     setPlayers([]);
     setTeamData([]);
-    setPassword("")
+    setPassword("");
     setUser(false);
   }
 
-  
+  if (!user) {
+    history.push('/')
+  }
 
   return (
-    <div>
-      <div>
-        <NavBar onLogOut={onLogOut} user={user}/>
-        <Switch>
-          <Route exact path="/home">
-            <Home user={user} setUser={setUser} players={players} setPlayers={setPlayers} />
-          </Route>
-          <Route exact path="/players">
-            <PlayerContainer
-              players={players}
-              user={user}
-              setTeamData={setTeamData}
-              teamData={teamData}
-              addPlayersToTeam={addPlayersToTeam}
-            />
-          </Route>
-          <Route exact path="/users">
-            <Users user={user} allUsers={allUsers} />
-          </Route>
-          <Route exact path="/users/:id">
-            <UserDetail allUsers={allUsers} user={user} />
-          </Route>
-          <Route exact path="/createplayer">
-            <CreatePlayer
-              user={user}
-              setPlayers={setPlayers}
-              players={players}
-              getTheData={getTheData}
-              addPlayersToTeam={addPlayersToTeam}
-            />
-          </Route>
-          <Route exact path="/team">
-            <Team teamData={teamData} user={user} setTeamData={setTeamData} />
-          </Route>
-          <Route exact path="/team/:id">
-            <TeamDetail
-              teamData={teamData}
-              user={user}
-              setTeamData={setTeamData}
-              fetchTeamPlayers={fetchTeamPlayers}
-              getTheData={getTheData}
-            />
-          </Route>
-          <Route exact path="/welcome">
-            <Welcome user={user} password={password} />
-          </Route>
-        </Switch>
-      </div>
-      {!user ? (
-        <Switch>
-          <Route exact path="/">
-            <Login
-              setUser={setUser}
-              addPlayersToTeam={addPlayersToTeam}
-              fetchAllUsers={fetchAllUsers}
-              setPassword={setPassword}
-              password={password}
-              getTheData={getTheData}
-            />
-            <SignUp setUser={setUser} />
-          </Route>
-        </Switch>
-      ) : null}
-    </div>
+    <>
+      <NavBar onLogOut={onLogOut} user={user} />
+      <Switch>
+        {user ? (
+          <div>
+            <Route exact path="/home">
+              <Home
+                user={user}
+                setUser={setUser}
+                players={players}
+                setPlayers={setPlayers}
+              />
+            </Route>
+            <Route exact path="/players">
+              <PlayerContainer
+                players={players}
+                user={user}
+                setTeamData={setTeamData}
+                teamData={teamData}
+                addPlayersToTeam={addPlayersToTeam}
+              />
+            </Route>
+            <Route exact path="/users">
+              <Users user={user} allUsers={allUsers} />
+            </Route>
+            <Route exact path="/users/:id">
+              <UserDetail allUsers={allUsers} user={user} />
+            </Route>
+            <Route exact path="/createplayer">
+              <CreatePlayer
+                user={user}
+                setPlayers={setPlayers}
+                players={players}
+                getTheData={getTheData}
+                addPlayersToTeam={addPlayersToTeam}
+              />
+            </Route>
+            <Route exact path="/team">
+              <Team teamData={teamData} user={user} setTeamData={setTeamData} />
+            </Route>
+            <Route exact path="/team/:id">
+              <TeamDetail
+                teamData={teamData}
+                user={user}
+                setTeamData={setTeamData}
+                fetchTeamPlayers={fetchTeamPlayers}
+                getTheData={getTheData}
+              />
+            </Route>
+            <Route exact path="/welcome">
+              <Welcome user={user} password={password} />
+            </Route>
+          </div>
+        ) : (
+          <div>
+            <Route exact path="/">
+              <Login
+                setUser={setUser}
+                addPlayersToTeam={addPlayersToTeam}
+                fetchAllUsers={fetchAllUsers}
+                setPassword={setPassword}
+                password={password}
+                getTheData={getTheData}
+              />
+              <SignUp setUser={setUser} />
+            </Route>
+          </div>
+        )}
+      </Switch>
+    </>
   );
 }
 

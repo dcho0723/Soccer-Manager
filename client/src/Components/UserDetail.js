@@ -61,7 +61,7 @@ function UserDetail({ allUsers, user }) {
         if (randomNumberForDifference<=10 && randomNumberForDifference >= -10) {
         // console.log("i won")
         window.alert(`${winningStr} ${user.name} won ${secondRandomScore} - ${firstRandomScore}!`)
-        winingPacth()
+        winningPatch()
         } else {
             window.alert(`${losingStr} ${user.name} lost ${firstRandomScore} - ${secondRandomScore}!`)
             // console.log("you lost")
@@ -71,7 +71,7 @@ function UserDetail({ allUsers, user }) {
 
 
 
-    function winingPacth() {
+    function winningPatch() {
         fetch(`/players/${playerId}/update`, {
           method: "PATCH",
           headers: {

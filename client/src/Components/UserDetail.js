@@ -28,14 +28,6 @@ function UserDetail({ allUsers, user, getTheData }) {
     }
     );
 
-    // console.log(userAverage[0])
-    // console.log(user.get_users_average_rating)
-    // console.log(user.get_users_average_rating - userAverage[0])
-    // let x = user.get_users_average_rating - userAverage[0]
-    // let y = Math.floor(Math.random() * x)
-    // console.log(y)
-    // console.log(user.name)
-
     function handleClickChallenge() {
         let ratingDifference = user.get_users_average_rating - userAverage[0]
         if  (ratingDifference <= 10 && ratingDifference >= -10) {
@@ -49,7 +41,7 @@ function UserDetail({ allUsers, user, getTheData }) {
         
         let winningArr = [`What a game! ${randomPlayer} played at his best`, `${randomPlayer} played well today!`, `${randomPlayer} let his team to victory`, `${randomPlayer} played a big role in todays win! `]
 
-        let losingArr = [`Tough lose. ${randomPlayer} wasn't at their best`, `${randomPlayer} mistake led to a costly lost.`, `Rough night for ${randomPlayer}.`, `${randomPlayer} couldn't seem to get a control of the game.`]
+        let losingArr = [`Tough loss. ${randomPlayer} wasn't at their best`, `${randomPlayer} mistake led to a costly lost.`, `Rough night for ${randomPlayer}.`, `${randomPlayer} couldn't seem to get a control of the game.`]
 
         let winningStr = winningArr[Math.floor(Math.random() * winningArr.length)]
 

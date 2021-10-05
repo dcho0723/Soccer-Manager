@@ -38,6 +38,7 @@ function TeamCard({ teamData, setTeamData }) {
       );
     }
   });
+
   let defencePlayers = teamData.map((player) => {
     if (!player.bench && player.position == "Defender") {
       return (
@@ -52,6 +53,7 @@ function TeamCard({ teamData, setTeamData }) {
       );
     }
   });
+
   let goaliePlayers = teamData.map((player) => {
     if (!player.bench && player.position == "Goalie") {
       return (
@@ -70,6 +72,7 @@ function TeamCard({ teamData, setTeamData }) {
       );
     }
   });
+  
   let benchPlayers = teamData.map((player) => {
     if (player.bench) {
       return (
@@ -86,30 +89,25 @@ function TeamCard({ teamData, setTeamData }) {
         </Link>
       );
     }
-  });
+  })
 
   return (
     <div className="soccerField">
       <div>
         <div className="fieldPlayers" style={{ paddingTop: "50px" }}>
-          {/* <h5>Forward Players</h5> */}
           {forwardPlayers}
         </div>
         <div className="fieldPlayers">
-          {/* <h5>Midfield Players</h5> */}
           {midfielderPlayers}
         </div>
         <div className="fieldPlayers">
-          {/* <h5>Defence Players</h5> */}
           {defencePlayers}
         </div>
         <div className="fieldPlayers">
-          {/* <h5 >Goalie Players</h5> */}
           {goaliePlayers}
         </div>
       </div>
-      <div className="benchPlayers" style={{ paddingTop: "30px" }}>
-        {/* <h1>Bench</h1> */}
+      <div className="benchPlayers" style={{ paddingTop: "20px", paddingBottom: "20px"}}>
         {benchPlayers}
       </div>
     </div>

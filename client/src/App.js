@@ -13,6 +13,7 @@ import TeamDetail from "./Components/TeamDetail";
 import Welcome from "./Components/Welcome";
 import { useHistory } from "react-router-dom";
 import UserDetail from "./Components/UserDetail";
+import BottomNav from "./Components/BottomNav";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -111,6 +112,7 @@ function App() {
   return (
     <>
       <NavBar onLogOut={onLogOut} user={user} />
+      <BottomNav />
       <Switch>
         {user ? (
           <div>

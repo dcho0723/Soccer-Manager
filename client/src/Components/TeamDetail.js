@@ -78,10 +78,10 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
                       </button>
                     ) : null}
                     {player.bench ? (
-                      <button onClick={handleBench}>Start Player</button>
+                      <button className="benchBtn" onClick={handleBench}>Start Player</button>
                     ) : (
                       <button
-                        className="playerDetailBtn"
+                        className="benchBtn"
                         onClick={handleBench}
                       >
                         Bench Player
@@ -130,10 +130,10 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
                         </button>
                       ) : null}
                       {player.bench ? (
-                        <button onClick={handleBench}>Start Player</button>
+                        <button onClick={handleBench} className="benchBtn">Start Player</button>
                       ) : (
                         <button
-                          className="playerDetailBtn"
+                        className="benchBtn"
                           onClick={handleBench}
                         >
                           Bench Player

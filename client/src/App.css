@@ -1,10 +1,11 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Yaldevi:wght@300&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&family=Crimson+Text&family=Yaldevi:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&family=Crimson+Text&family=Spartan&family=Yaldevi:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Antic+Slab&family=Crimson+Text&family=Yaldevi:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antic+Slab&family=Crimson+Text&family=Spartan&family=Yaldevi:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&family=Crimson+Text&family=Lobster+Two:ital,wght@1,700&family=Spartan&family=Yaldevi:wght@300&display=swap');
 
 * {
   /* font-family: 'Antic Slab', serif; */
-  font-family: 'Spartan', sans-serif;
+  font-family: "Spartan", sans-serif;
 }
 .App {
   text-align: center;
@@ -52,7 +53,14 @@ nav {
   background-position: center;
 }
 
-
+.myTeam {
+  text-align: center;
+  font-family: 'Lobster Two', cursive;
+  font-size: 90px;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  color: rgb(49, 56, 116);
+}
 
 #loginForm {
   text-align: center;
@@ -302,6 +310,8 @@ input {
 
 .playerDetailBtn {
   margin-right: 10px;
+  border-radius: 8px;
+  font-size: 15px;
 }
 
 .userPlayers {
@@ -315,8 +325,8 @@ input {
 
 button {
   color: #444444;
-  background: #F3F3F3;
-  border: 1px #DADADA solid;
+  background: #f3f3f3;
+  border: 1px #dadada solid;
   padding: 5px 10px;
   border-radius: 2px;
   font-weight: bold;
@@ -325,74 +335,72 @@ button {
 }
 
 button:hover {
-  border: 1px #C6C6C6 solid;
-  box-shadow: 1px 1px 1px #EAEAEA;
+  border: 1px #c6c6c6 solid;
+  box-shadow: 1px 1px 1px #eaeaea;
   color: #333333;
-  background: #F7F7F7;
+  background: #f7f7f7;
 }
 
 button:active {
-  box-shadow: inset 1px 1px 1px #DFDFDF;   
+  box-shadow: inset 1px 1px 1px #dfdfdf;
 }
 
 button.submitButton {
   color: white;
-  background: #4C8FFB;
-  border: 1px #3079ED solid;
-  box-shadow: inset 0 1px 0 #80B0FB;
+  background: #4c8ffb;
+  border: 1px #3079ed solid;
+  box-shadow: inset 0 1px 0 #80b0fb;
 }
 
 button.submitButton:hover {
-  border: 1px #2F5BB7 solid;
-  box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
-  background: #3F83F1;
+  border: 1px #2f5bb7 solid;
+  box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #5a94f1;
+  background: #3f83f1;
 }
 
 button.submitButton:active {
-  box-shadow: inset 0 2px 5px #2370FE;   
+  box-shadow: inset 0 2px 5px #2370fe;
 }
 
 button#signUpButton {
   color: white;
-  background: #4C8FFB;
-  border: 1px #3079ED solid;
-  box-shadow: inset 0 1px 0 #80B0FB;
+  background: #4c8ffb;
+  border: 1px #3079ed solid;
+  box-shadow: inset 0 1px 0 #80b0fb;
 }
 
 button#signUpButton:hover {
-  border: 1px #2F5BB7 solid;
-  box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
-  background: #3F83F1;
+  border: 1px #2f5bb7 solid;
+  box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #5a94f1;
+  background: #3f83f1;
 }
 
 button#signUpButton:active {
-  box-shadow: inset 0 2px 5px #2370FE;   
+  box-shadow: inset 0 2px 5px #2370fe;
 }
 
 button.logoutBtn {
-  background:  #DD4B39; 
-  background: #DD4B39; 
-  background: #D14836; 
-  border: 1px solid #DD4B39;
+  background: #dd4b39;
+  background: #dd4b39;
+  background: #d14836;
+  border: 1px solid #dd4b39;
   color: white;
-  text-shadow: 0 1px 0 #C04131;
+  text-shadow: 0 1px 0 #c04131;
 }
 
 button.logoutBtn:hover {
-   background:  #C53727;
-   background:  #C53727;
-   background: #C53727;
-   border: 1px solid #AF301F;
+  background: #c53727;
+  background: #c53727;
+  background: #c53727;
+  border: 1px solid #af301f;
 }
 
 button.logoutBtn:active {
-   box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
-  background: #AD2719;
-  background: #AD2719;
-  background: #AD2719;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #ad2719;
+  background: #ad2719;
+  background: #ad2719;
 }
-
-
 
 button.addPlayerBtn {
   border-radius: 8px;
@@ -404,10 +412,54 @@ button.addPlayerBtn {
 
 button.addPlayerBtn:hover {
   border: 1px #038b53 solid;
-  box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #15ca7f;
+  box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #15ca7f;
   background: #06965a;
 }
 
 button.addPlayerBtn:active {
-  box-shadow: inset 0 2px 5px #037546;   
+  box-shadow: inset 0 2px 5px #037546;
+}
+
+button.playerDetailBtn {
+  background: #dd4b39;
+  background: #dd4b39;
+  background: #d14836;
+  border: 1px solid #dd4b39;
+  color: white;
+  text-shadow: 0 1px 0 #c04131;
+}
+
+button.playerDetailBtn:hover {
+  background: #c53727;
+  background: #c53727;
+  background: #c53727;
+  border: 1px solid #af301f;
+}
+
+button.playerDetailBtn:active {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #ad2719;
+  background: #ad2719;
+  background: #ad2719;
+}
+
+.benchBtn {
+  font-size: 15px;
+}
+button.benchBtn {
+  border-radius: 8px;
+  color: white;
+  background: #038b53;
+  border: 1px #025a35 solid;
+  box-shadow: inset 0 1px 0 #10c77b;
+}
+
+button.benchBtn:hover {
+  border: 1px #038b53 solid;
+  box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #15ca7f;
+  background: #06965a;
+}
+
+button.benchBtn:active {
+  box-shadow: inset 0 2px 5px #037546;
 }

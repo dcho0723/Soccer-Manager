@@ -37,12 +37,7 @@
     transform: rotate(360deg);
   }
 }
-.bottomNav {
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
+
 #loginForm {
   text-align: center;
   margin-top: 100px
@@ -56,6 +51,7 @@ input {
 .submitButton{
   margin-top: 10px;
 }
+
 #signUpButton{
   display: inline-block;
   text-align: center;
@@ -161,7 +157,8 @@ text-align: center;
 }
 
 .playerContainer{
-  width: 100%;
+  /* width: 100%; */
+  /* text-align: center; */
   /* justify-content: center; */
   /* align-items: center; */
   /* margin: auto; */
@@ -258,4 +255,46 @@ text-align: center;
 .noTeamMessage{
   padding-left: 40px;
   padding-right: 40px;
+}
+
+
+.teamPlayerDetail{
+  text-align: center;
+}
+
+.teamPlayerName{
+  font-size: 50px;
+}
+
+.teamPlayerDetail .teamPlayerDetailPic {
+  float: left;
+  width: 40%;
+  /* text-align: left; */
+  /* width: 500px; */
+  /* margin-right: -500px; */
+}
+.teamPlayerDetail .teamPlayerDetailInfo {
+  float: right;
+  width: 60%;
+  text-align: left;
+}
+.TeamPlayerDetailStat{
+  float: left;
+  width: 50%
+}
+
+
+.teamPlayerDetailAbout{
+  float: right;
+  width: 50%;
+  padding-bottom: 150px;
+}
+.teamplayerDetailButtons{
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+.playerDetailBtn{
+  margin-right: 10px;
 }

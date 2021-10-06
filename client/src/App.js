@@ -111,8 +111,11 @@ function App() {
 
   return (
     <>
+
       <NavBar onLogOut={onLogOut} user={user} />
+
       <Switch>
+
         {user ? (
           <div>
             <Route exact path="/home">
@@ -164,7 +167,7 @@ function App() {
             </Route>
           </div>
         ) : (
-          <div>
+          <div className="logInPage">
             <Route exact path="/">
               <Login
                 setUser={setUser}

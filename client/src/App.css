@@ -1,81 +1,94 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Yaldevi:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&family=Crimson+Text&family=Yaldevi:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&family=Crimson+Text&family=Spartan&family=Yaldevi:wght@300&display=swap');
+
+* {
+  /* font-family: 'Antic Slab', serif; */
+  font-family: 'Spartan', sans-serif;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-image: linear-gradient(
+      45deg,
+      rgb(186, 216, 245) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgb(217, 203, 224) 75%
+    ),
+    linear-gradient(
+      45deg,
+      rgb(78, 124, 167) 25%,
+      rgb(248, 237, 207) 25%,
+      rgb(254, 212, 255) 75%,
+      rgb(102, 126, 148) 75%
+    );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav {
+  background-image: linear-gradient(
+      45deg,
+      rgb(166, 208, 247) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgb(217, 203, 224) 75%
+    ),
+    linear-gradient(
+      45deg,
+      rgb(0, 83, 160) 25%,
+      rgb(248, 237, 207) 25%,
+      rgb(254, 212, 255) 75%,
+      rgb(0, 83, 160) 75%
+    );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 #loginForm {
   text-align: center;
-  margin-top: 100px
-
+  margin-top: 100px;
 }
 input {
   margin-top: 5px;
-
 }
 
-.submitButton{
+.submitButton {
   margin-top: 10px;
 }
 
-#signUpButton{
+#signUpButton {
   display: inline-block;
   text-align: center;
   align-items: flex-start;
 }
 
-.signUp{
+.signUp {
   text-align: center;
 }
-#showForm{
-text-align: center;
+#showForm {
+  text-align: center;
 }
 
 .signUp label {
   display: block;
   position: relative;
-
 }
 .signUp input {
   margin-top: 5px;
   margin-bottom: 5px;
   width: 25%;
   border-radius: 7px;
-  text-align: center
+  text-align: center;
 }
 
 .navBar {
@@ -87,8 +100,7 @@ text-align: center;
   font-size: 25px;
 }
 
-.logoutBtn{  
-
+.logoutBtn {
   border-radius: 8px;
   /* background-color: white; */
   /* font-family: Comfortaa; */
@@ -96,9 +108,9 @@ text-align: center;
   /* font-weight: 900; */
   font-size: 18px;
   position: absolute;
-  right: 5%
+  right: 5%;
 }
-.welcomeScreen{
+.welcomeScreen {
   align-items: center;
   text-align: center;
 }
@@ -119,7 +131,7 @@ text-align: center;
   text-align: center;
 }
 
-.createPlayer{
+.createPlayer {
   align-items: center;
   text-align: center;
   margin-bottom: 80px;
@@ -131,32 +143,29 @@ text-align: center;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-
 }
 
 .createForm label {
   display: block;
   position: relative;
-
 }
 .createForm input {
   margin-top: 5px;
   margin-bottom: 5px;
   width: 100%;
   border-radius: 7px;
-  text-align: center
+  text-align: center;
 }
 
-.createSubmit{
-  width: 200px
-
+.createSubmit {
+  width: 200px;
 }
 
 .userPlayer {
   text-align: center;
 }
 
-.playerContainer{
+.playerContainer {
   /* width: 100%; */
   /* text-align: center; */
   /* justify-content: center; */
@@ -165,17 +174,15 @@ text-align: center;
   /* display: inline-flex;  */
   /* margin-left: auto;  */
   /* position: relative; */
-
 }
 
-.playerCard{
-
-  background-color: rgba(170, 180, 194, 0.253);
+.playerCard {
+  /* background-color: rgba(170, 180, 194, 0.253); */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  float: left; 
+  float: left;
   width: 400px;
   height: 600px;
   padding-top: 5px;
@@ -188,11 +195,11 @@ text-align: center;
   border: 2px solid black;
 }
 
-.playerContainer :hover .player{
+.playerContainer :hover .player {
   transform: translateY(-10px);
 }
 
-.playerImg{
+.playerImg {
   /* display: block; */
   align-items: center;
   justify-content: center;
@@ -201,44 +208,44 @@ text-align: center;
   width: 45%;
 }
 
-.ratingName{
+.ratingName {
   margin-top: 0px;
   margin-right: 130px;
   margin-left: 130px;
 }
 
-.playerName{
+.playerName {
   margin-bottom: 5px;
   text-align: center;
 }
 
-.searchBar{
+.searchBar {
   text-align: center;
   margin-bottom: 40px;
 }
-.searchTab{
+.searchTab {
   width: 30%;
   text-align: center;
   height: 30px;
   font-size: 1em;
   border-radius: 15px;
 }
-.searchBar input:focus{
+.searchBar input:focus {
   /* transform: translateY(-2px); */
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   outline: none;
 }
 
-.playerPosition{
+.playerPosition {
   margin-bottom: 0px;
 }
 
 .goalieStat {
-  margin-right: 12px
+  margin-right: 12px;
 }
 .playerStat {
-  margin-right: 20px
+  margin-right: 20px;
 }
 
 .playerButton {
@@ -246,23 +253,22 @@ text-align: center;
   padding-left: 80px;
 }
 
-.linkToUserTeam{
+.linkToUserTeam {
   padding-left: 80px;
   padding-right: 80px;
   text-decoration: none;
 }
 
-.noTeamMessage{
+.noTeamMessage {
   padding-left: 40px;
   padding-right: 40px;
 }
 
-
-.teamPlayerDetail{
+.teamPlayerDetail {
   text-align: center;
 }
 
-.teamPlayerName{
+.teamPlayerName {
   font-size: 50px;
 }
 
@@ -278,32 +284,87 @@ text-align: center;
   width: 60%;
   text-align: left;
 }
-.TeamPlayerDetailStat{
+.TeamPlayerDetailStat {
   float: left;
-  width: 50%
+  width: 50%;
 }
 
-
-.teamPlayerDetailAbout{
+.teamPlayerDetailAbout {
   float: right;
   width: 50%;
   padding-bottom: 150px;
 }
-.teamplayerDetailButtons{
+.teamplayerDetailButtons {
   width: 100%;
   float: left;
   text-align: center;
 }
 
-.playerDetailBtn{
+.playerDetailBtn {
   margin-right: 10px;
 }
 
-.userPlayers{
+.userPlayers {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.challengeBttn{
+.challengeBttn {
   margin-bottom: 15px;
+}
+
+button {
+  color: #444444;
+  background: #F3F3F3;
+  border: 1px #DADADA solid;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 9pt;
+  outline: none;
+}
+
+button:hover {
+  border: 1px #C6C6C6 solid;
+  box-shadow: 1px 1px 1px #EAEAEA;
+  color: #333333;
+  background: #F7F7F7;
+}
+
+button:active {
+  box-shadow: inset 1px 1px 1px #DFDFDF;   
+}
+
+button.submitButton {
+  color: white;
+  background: #4C8FFB;
+  border: 1px #3079ED solid;
+  box-shadow: inset 0 1px 0 #80B0FB;
+}
+
+button.submitButton:hover {
+  border: 1px #2F5BB7 solid;
+  box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+  background: #3F83F1;
+}
+
+button.submitButton:active {
+  box-shadow: inset 0 2px 5px #2370FE;   
+}
+
+button#signUpButton {
+  color: white;
+  background: #4C8FFB;
+  border: 1px #3079ED solid;
+  box-shadow: inset 0 1px 0 #80B0FB;
+}
+
+button#signUpButton:hover {
+  border: 1px #2F5BB7 solid;
+  box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+  background: #3F83F1;
+}
+
+button#signUpButton:active {
+  box-shadow: inset 0 2px 5px #2370FE;   
 }

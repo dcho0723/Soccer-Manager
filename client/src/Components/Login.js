@@ -51,7 +51,6 @@ function Login({ setUser, addPlayersToTeam, fetchAllUsers, setPassword, password
           onChange={(e) => setPassword(e.target.value)}
           style={{marginLeft: "7px"}}
         />
-        {/* <Link to="/home" > */}
         <br/>
           <button type="submit" className="submitButton">
             LogIn

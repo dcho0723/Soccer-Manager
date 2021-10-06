@@ -118,10 +118,9 @@ function UserDetail({ allUsers, user, getTheData }) {
           if (otherUser.players.length > 0) {
             return (
               <div key={otherUser.id} className="userPlayers">
-                <h1>Name: {otherUser.name}</h1>
-                <p>
-                  {otherUser.name} Teams Average Rating {userAverage}
-                </p>
+                <h1>
+                  {otherUser.name}'s Team Average Rating: {userAverage}
+                </h1>
                 <button onClick={handleClickChallenge} className="challengeBttn">Challenge?</button>
                 <br />
                 {otherUser.players.map((players) => {

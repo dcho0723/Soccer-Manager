@@ -95,7 +95,7 @@ function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
             {user.get_users_average_rating}
           </h1>
           <Link to="/team">
-            <button>View Your Team</button>
+            <button className="viewTeamBtn">View Your Team</button>
           </Link>
           {returnPlayer()}
         </div>

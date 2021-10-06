@@ -298,3 +298,12 @@ text-align: center;
 .playerDetailBtn{
   margin-right: 10px;
 }
+
+.userPlayers{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.challengeBttn{
+  margin-bottom: 15px;
+}

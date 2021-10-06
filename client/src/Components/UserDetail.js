@@ -117,19 +117,56 @@ function UserDetail({ allUsers, user, getTheData }) {
         .map((otherUser) => {
           if (otherUser.players.length > 0) {
             return (
-              <div key={otherUser.id}>
+              <div key={otherUser.id} className="userPlayers">
                 <h1>Name: {otherUser.name}</h1>
                 <p>
                   {otherUser.name} Teams Average Rating {userAverage}
                 </p>
-                <button onClick={handleClickChallenge}>Challenge?</button>
+                <button onClick={handleClickChallenge} className="challengeBttn">Challenge?</button>
+                <br />
                 {otherUser.players.map((players) => {
                   return (
-                    <div>
-                      <h1>{players.name}</h1>
-                      <h1>{players.rating}</h1>
-                      <img src={players.image} />
-                    </div>
+                    <>
+                    {players.position == "Goalie" ? (
+                      <div className="playerCard">
+                        <h1 className="playerName">{players.name}</h1>
+                        <h2 className="ratingName">Rating: {players.rating}</h2>
+                        <div style={{ textAlign: "center" }}>
+                          <img src={players.image} className="playerImg" />
+                          <h3 className="playerPosition">Position: {players.position}</h3>
+                        </div>
+                        <div className="goalieStat">
+                          <p>Diving: {players.pace}</p>
+                          <p>Handling: {players.shot}</p>
+                          <p>Kicking: {players.pass}</p>
+                        </div>
+                        <div>
+                          <p>Reflexes: {players.dribble}</p>
+                          <p>Speed: {players.defence}</p>
+                          <p>Positioning: {players.physical}</p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="playerCard">
+                        <h1 className="playerName">{players.name}</h1>
+                        <h2 className="ratingName">Rating: {players.rating}</h2>
+                        <div style={{ textAlign: "center" }}>
+                          <img src={players.image} className="playerImg" />
+                          <h3 className="playerPosition">Position: {players.position}</h3>
+                        </div>
+                        <div className="playerStat">
+                          <p>Pace: {players.pace}</p>
+                          <p>Shot: {players.shot}</p>
+                          <p>Pass: {players.pass}</p>
+                        </div>
+                        <div>
+                          <p>Dribble: {players.dribble}</p>
+                          <p>Defence: {players.defence}</p>
+                          <p>Physical: {players.physical}</p>
+                        </div>
+                      </div>
+                    )}
+                    </>
                   );
                 })}
               </div>

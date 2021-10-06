@@ -12,7 +12,6 @@ function PlayerContainer({
 }) {
   const [searchInput, setSearchInput] = useState("");
 
-
   return (
     <div>
       {user.show_user_players_length !== 0 ? 
@@ -53,8 +52,7 @@ function PlayerContainer({
           })}
       </div>
       </>
-      : <h1>Please Create A Player First!</h1>
-}
+      : <h1>Please Create A Player First!</h1>}
     </div>
   );
 }

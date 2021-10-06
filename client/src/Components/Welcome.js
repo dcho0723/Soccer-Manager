@@ -114,6 +114,7 @@ function Welcome({ user, password }) {
               Please Choose Your Favorite Club 
               <select style={{marginLeft: "10px"}} value={club} onChange={(e) => setClub(e.target.value)}>
                 <br/>
+                <option value=""></option>
                 {soccerClubs.map((clubs) => (
                   <option value={clubs}>{clubs}</option>
                 ))}

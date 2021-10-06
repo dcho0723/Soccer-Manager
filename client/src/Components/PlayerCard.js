@@ -62,7 +62,7 @@ function PlayerCard({
             <p>Positioning: {physical}</p>
           </div>
           <div className="playerButton">
-            <button onClick={handleClick}>Add To Your Team</button>
+            <button onClick={handleClick} className="addPlayerBtn">Add To Your Team</button>
           </div>
         </div>
       ) : (
@@ -84,7 +84,7 @@ function PlayerCard({
             <p>Physical: {physical}</p>
           </div>
           <div className="playerButton">
-            <button onClick={handleClick}>Add To Your Team</button>
+            <button onClick={handleClick} className="addPlayerBtn">Add To Your Team</button>
           </div>
         </div>
       )}

@@ -52,7 +52,7 @@ function PlayerContainer({
           })}
       </div>
       </>
-      : <h1>Please Create A Player First!</h1>}
+      : <h1 style={{textAlign: "center"}}>Please Create A Player First!</h1>}
     </div>
   );
 }

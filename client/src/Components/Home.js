@@ -4,6 +4,7 @@ import CreatePlayer from "./CreatePlayer";
 
 function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
   //will rerender average rating
+  
   useEffect(() => {
     fetch("/players")
       .then((res) => res.json())

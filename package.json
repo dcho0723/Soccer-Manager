@@ -1,5 +1,5 @@
 {
-    "name": "futbol-manager",
+    "name": "my-team",
     "description": "create a team for english premier league",
     "engines": {
         "node": ">= 14"

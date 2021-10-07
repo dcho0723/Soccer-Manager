@@ -30,4 +30,4 @@ npm start --prefix client
 <br />[Email](mailto:cho.dennis02@gmail.com?subject=MyTeam% )
 
 
-© 2021 Elisa Shapiro
+© 2021 Dennis Cho

@@ -70,6 +70,14 @@ input {
   margin-top: 5px;
 }
 
+.welcome {
+  font-size: 50px;
+}
+
+.premier-table{
+  margin-bottom: 80px;
+}
+
 .submitButton {
   margin-top: 10px;
 }
@@ -85,6 +93,7 @@ input {
 }
 #showForm {
   text-align: center;
+
 }
 
 .signUp label {
@@ -94,7 +103,7 @@ input {
 .signUp input {
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 25%;
+  width: 250px;
   border-radius: 7px;
   text-align: center;
 }
@@ -220,6 +229,7 @@ input {
 .searchBar {
   text-align: center;
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 .searchTab {
   width: 30%;

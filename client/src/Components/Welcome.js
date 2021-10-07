@@ -59,10 +59,7 @@ function Welcome({ user, password }) {
   function chooseClub() {
     if (user.favoriteclub !== null || usersClub !== "") {
       return (
-        <>
-          <div
-            style={{ linearGradient: "(rgb(0, 83, 160), rgb(253,190,17))" }}
-          ></div>
+
           <div className="premier-table">
             <img
               className="league-logo"
@@ -103,17 +100,21 @@ function Welcome({ user, password }) {
               }
             })}
           </div>
-        </>
+
       );
     } else {
       return (
         <div className="welcomeScreen">
           <h2>Let's Get Started</h2>
           <form onSubmit={handleSubmit}>
-            <label style={{marginRight: "5px"}}>
-              Please Choose Your Favorite Club 
-              <select style={{marginLeft: "10px"}} value={club} onChange={(e) => setClub(e.target.value)}>
-                <br/>
+            <label style={{ marginRight: "5px" }}>
+              Please Choose Your Favorite Club
+              <select
+                style={{ marginLeft: "10px" }}
+                value={club}
+                onChange={(e) => setClub(e.target.value)}
+              >
+                <br />
                 <option value=""></option>
                 {soccerClubs.map((clubs) => (
                   <option value={clubs}>{clubs}</option>
@@ -129,8 +130,7 @@ function Welcome({ user, password }) {
 
   return (
     <div className="welcomeScreen">
-      <h1>Welcome To FutManager</h1>
-      {/* <h3></h3> */}
+      <h1 className="welcome">Welcome To MyTeam</h1>
       {chooseClub()}
     </div>
   );

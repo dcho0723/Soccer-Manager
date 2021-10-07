@@ -107,7 +107,7 @@ function TeamCard({ teamData, setTeamData }) {
           {goaliePlayers}
         </div>
       </div>
-      <div className="benchPlayers" style={{ paddingTop: "20px", paddingBottom: "20px"}}>
+      <div className="benchPlayers" style={{ marginTop: "20px", paddingBottom: "20px"}}>
         {benchPlayers}
       </div>
     </div>

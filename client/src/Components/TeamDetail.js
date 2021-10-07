@@ -33,7 +33,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
   }
 
   return (
-    <div>
+    <div >
       <div>
         {teamData
           .filter((player) => player.id == id)
@@ -44,7 +44,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
                 <div className="teamPlayerDetail">
                 <h1 className="teamPlayerName">{player.name}</h1>
                 <div className="teamPlayerDetailPic">
-                  <img src={player.image} style={{ width: "80%" }} />
+                  <img src={player.image} style={{ width: "80%", marginBottom: "100px" }} />
                 </div>
                 <div className="teamPlayerDetailInfo">
                   <h1 style={{ textAlign: "center", fontSize: "40px" }}>
@@ -96,7 +96,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
                 <div className="teamPlayerDetail">
                   <h1 className="teamPlayerName">{player.name}</h1>
                   <div className="teamPlayerDetailPic">
-                    <img src={player.image} style={{ width: "80%" }} />
+                    <img src={player.image} style={{ width: "80%", marginBottom: "100px"  }} />
                   </div>
                   <div className="teamPlayerDetailInfo">
                     <h1 style={{ textAlign: "center", fontSize: "40px" }}>

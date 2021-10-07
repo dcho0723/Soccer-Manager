@@ -63,3 +63,22 @@
     
 }
 
+.noTeamH1 {
+    text-align: center;
+    font-size: 40px;
+}   
+.userForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.message {width: 350px;
+min-height: 60px;
+margin-top: 50px;
+word-wrap: break-word;
+word-break: break-all;
+background-color: white;
+}

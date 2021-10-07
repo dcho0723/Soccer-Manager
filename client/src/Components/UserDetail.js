@@ -208,8 +208,9 @@ function UserDetail({ allUsers, user, getTheData }) {
             return (
               <div>
                 <h1 className="noTeamH1">
-                  {otherUser.name} hasn't created a team yet
+                  {otherUser.name} hasn't created a team yet!
                 </h1>
+                <h3 style={{textAlign: "center", marginTop: "100px"}}>Send {otherUser.name} a message</h3>
                 <form className="userForm" onSubmit={handleSubmit}>
                   <label>
                     <textarea

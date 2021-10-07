@@ -47,7 +47,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
                   <img src={player.image} style={{ width: "80%", marginBottom: "100px" }} />
                 </div>
                 <div className="teamPlayerDetailInfo">
-                  <h1 style={{ textAlign: "center", fontSize: "40px" }}>
+                  <h1 style={{ textAlign: "left", fontSize: "40px" }}>
                     Rating: {player.rating}
                   </h1>
                   <div className="TeamPlayerDetailStat">
@@ -99,7 +99,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
                     <img src={player.image} style={{ width: "80%", marginBottom: "100px"  }} />
                   </div>
                   <div className="teamPlayerDetailInfo">
-                    <h1 style={{ textAlign: "center", fontSize: "40px" }}>
+                    <h1 style={{ textAlign: "left", fontSize: "40px" }}>
                       Rating: {player.rating}
                     </h1>
                     <div className="TeamPlayerDetailStat">

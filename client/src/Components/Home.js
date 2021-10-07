@@ -4,7 +4,7 @@ import CreatePlayer from "./CreatePlayer";
 
 function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
   //will rerender average rating
-  
+
   useEffect(() => {
     fetch("/players")
       .then((res) => res.json())
@@ -20,7 +20,7 @@ function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
             <img src={user.show_users_player_image} style={{ width: "80%" }} />
           </div>
           <div className="teamPlayerDetailInfo">
-            <h1 style={{ textAlign: "center", fontSize: "40px" }}>
+            <h1 style={{ textAlign: "left", fontSize: "40px" }}>
               Rating: {user.show_users_player_rating}
             </h1>
             <div className="TeamPlayerDetailStat">
@@ -51,7 +51,7 @@ function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
             <img src={user.show_users_player_image} style={{ width: "80%" }} />
           </div>
           <div className="teamPlayerDetailInfo">
-            <h1 style={{ textAlign: "center", fontSize: "40px" }}>
+            <h1 style={{ textAlign: "left", fontSize: "40px" }}>
               Rating: {user.show_users_player_rating}
             </h1>
             <div className="TeamPlayerDetailStat">

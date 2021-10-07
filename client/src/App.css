@@ -166,6 +166,19 @@ input {
 .createForm label {
   display: block;
   position: relative;
+  width: 300px;
+  margin-bottom: 5px;
+}
+.createForm select {
+  display: block;
+  position: relative;
+  width: 308px;
+  border-radius: 7px;
+  height: 29px;
+  /* border: 200px */
+  border-width: 2px;
+
+  /* margin-bottom: 5px; */
 }
 .createForm input {
   margin-top: 5px;
@@ -173,10 +186,12 @@ input {
   width: 100%;
   border-radius: 7px;
   text-align: center;
+  height: 23px;
 }
 
 .createSubmit {
   width: 200px;
+  margin-top: 10px;
 }
 
 .userPlayer {
@@ -531,4 +546,22 @@ button.challengeBttn:active {
 .userFormButton{
   text-align: center;
   /* position: absolute */
+}
+
+button.createSubmit {
+  border-radius: 8px;
+  color: white;
+  background: #038b53;
+  border: 1px #025a35 solid;
+  box-shadow: inset 0 1px 0 #10c77b;
+}
+
+button.createSubmit:hover {
+  border: 1px #038b53 solid;
+  box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #15ca7f;
+  background: #06965a;
+}
+
+button.createSubmit:active {
+  box-shadow: inset 0 2px 5px #037546;
 }

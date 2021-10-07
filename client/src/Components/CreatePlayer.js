@@ -117,10 +117,11 @@ function CreatePlayer({
           />
           <br />
         </label>
-        <label>
+        <label style={{height: "50px"}}>
           Position
           <select
             value={position}
+            style={{textAlign: "center"}}
             onChange={(e) => setPosition(e.target.value)}
           >
             <option value=""></option>

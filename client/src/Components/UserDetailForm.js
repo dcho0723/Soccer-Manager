@@ -3,7 +3,7 @@ import React from "react";
 function UserDetailForm({ otherUser }) {
   function handleSubmit(e) {
     e.preventDefault();
-    window.alert(`Message Sent to ${otherUser.name}`);
+    window.alert(`Message Sent To ${otherUser.name}`);
     e.target.reset();
   }
 

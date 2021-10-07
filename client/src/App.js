@@ -111,9 +111,7 @@ function App() {
 
   return (
     <>
-
       <NavBar onLogOut={onLogOut} user={user} />
-
       <Switch>
 
         {user ? (

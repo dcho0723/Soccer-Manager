@@ -54,7 +54,7 @@ function Users({ user, allUsers }) {
                       <p>Speed: {users.show_users_player.defence}</p>
                       <p>Positioning: {users.show_users_player.physical}</p>
                     </div>
-                    <Link className="linkToUserTeam"to={`/users/${users.id}`}><button>View {users.name}'s Team</button></Link>
+                    <Link className="linkToUserTeam"to={`/users/${users.id}`}><button className="viewTeamBtn">View {users.name}'s Team</button></Link>
                   </div>
                 ) : (
                   <div className="playerCard">
@@ -83,7 +83,7 @@ function Users({ user, allUsers }) {
                       <p>Defence: {users.show_users_player.defence}</p>
                       <p>Physical: {users.show_users_player.physical}</p>
                     </div>
-                    <Link className="linkToUserTeam" to={`/users/${users.id}`}><button>View {users.name}'s Team</button></Link>
+                    <Link className="linkToUserTeam" to={`/users/${users.id}`}><button className="viewTeamBtn">View {users.name}'s Team</button></Link>
                   </div>
                 )}
 
@@ -94,7 +94,7 @@ function Users({ user, allUsers }) {
               <div className="playerCard">
                 <h1 className="playerName" style={{marginLeft: "30px", marginRight: "30px"}}>{users.name}</h1>
                 <h3 className="noTeamMessage">{users.name} has not created a player yet</h3>
-                <Link to={`/users/${users.id}`}><button>View {users.name}'s Team</button></Link>
+                <Link to={`/users/${users.id}`}><button className="viewTeamBtn">View {users.name}'s Team</button></Link>
               </div>
             );
           }

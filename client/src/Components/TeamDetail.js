@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
-// import ".././Team.css";
+
 
 function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
   const { id } = useParams();

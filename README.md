@@ -25,7 +25,6 @@ npm start --prefix client
 ```
 
 ## Author
-Elisa Shapiro
 <br />[Profile](https://github.com/dcho0723 "Dennis Cho")
 <br />[LinkedIn](https://www.linkedin.com/in/cho-dennis/ "Dennis Cho")
 <br />[Email](mailto:cho.dennis02@gmail.com?subject=MyTeam% )

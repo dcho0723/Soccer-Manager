@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import UserDetailForm from "./UserDetailForm"
 
 function UserDetail({ allUsers, user, getTheData }) {
   const { id } = useParams();
@@ -125,12 +126,6 @@ function UserDetail({ allUsers, user, getTheData }) {
       });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    window.alert(`Message Sent`)
-    e.target.reset()
-  }
-
   return (
     <div>
       {allUsers
@@ -206,23 +201,7 @@ function UserDetail({ allUsers, user, getTheData }) {
             );
           } else {
             return (
-              <div>
-                <h1 className="noTeamH1">
-                  {otherUser.name} hasn't created a team yet!
-                </h1>
-                <h3 style={{textAlign: "center", marginTop: "100px"}}>Send {otherUser.name} a message</h3>
-                <form className="userForm" onSubmit={handleSubmit}>
-                  <label>
-                    <textarea
-                      className="message"
-                      type="text"
-                      placeholder="Send A Message"
-                    />
-                    <br />
-                    <input type="submit" value="Submit" />
-                  </label>
-                </form>
-              </div>
+              <UserDetailForm otherUser={otherUser}/>
             );
           }
         })}

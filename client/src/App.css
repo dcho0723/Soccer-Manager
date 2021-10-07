@@ -321,6 +321,8 @@ input {
 
 .challengeBttn {
   margin-bottom: 15px;
+  border-radius: 7px;
+  font-size: 15px;
 }
 
 button {
@@ -506,4 +508,21 @@ button.viewTeamBtn:active {
   word-wrap: break-word;
   word-break: break-all;
   background-color: white;
+}
+
+button.challengeBttn {
+  color: white;
+  background: #f19742;
+  border: 1px #ec8a2e solid;
+  box-shadow: inset 0 1px 0 #d47720;
+}
+
+button.challengeBttn:hover {
+  border: 1px #f1c091 solid;
+  box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #e4af7e;
+  background: #f08929;
+}
+
+button.challengeBttn:active {
+  box-shadow: inset 0 2px 5px #b15c0e;
 }

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useHistory, NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Credentials from "./Credentials";
 
-function SignUp({ setUser }) {
+function SignUp({  }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -25,8 +25,6 @@ function SignUp({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        // r.json().then((user) => setUser(user));
-        // history.push()
         window.alert("Thank You For Creating An Account");
         ShowAndHide();
         setErrors([]);

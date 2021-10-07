@@ -119,8 +119,6 @@ function App() {
             <Route exact path="/home">
               <Home
                 user={user}
-                setUser={setUser}
-                players={players}
                 setPlayers={setPlayers}
               />
             </Route>
@@ -149,7 +147,7 @@ function App() {
               />
             </Route>
             <Route exact path="/team">
-              <Team teamData={teamData} user={user} setTeamData={setTeamData} />
+              <Team teamData={teamData} setTeamData={setTeamData} />
             </Route>
             <Route exact path="/team/:id">
               <TeamDetail
@@ -175,7 +173,7 @@ function App() {
                 password={password}
                 getTheData={getTheData}
               />
-              <SignUp setUser={setUser} />
+              <SignUp  />
             </Route>
           </div>
         )}

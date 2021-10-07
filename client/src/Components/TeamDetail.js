@@ -1,10 +1,10 @@
 import React from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
   const { id } = useParams();
-  let history = useHistory();
+
 
   function handleDelete() {
     fetch(`/team/${id}/remove`, {

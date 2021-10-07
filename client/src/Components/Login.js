@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import Credentials from "./Credentials";
+import { useHistory } from "react-router-dom";
+
 
 function Login({
   setUser,
@@ -11,7 +11,6 @@ function Login({
   getTheData,
 }) {
   const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
   let history = useHistory();
 
   function handleSubmit(e) {

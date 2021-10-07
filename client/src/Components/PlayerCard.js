@@ -1,9 +1,6 @@
 import React from "react";
 
 function PlayerCard({
-  dob,
-  club,
-  country,
   image,
   name,
   rating,
@@ -14,7 +11,6 @@ function PlayerCard({
   dribble,
   defence,
   physical,
-  bench,
   id,
   user,
   setTeamData,

@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import UserDetail from "./UserDetail";
 
 function Users({ user, allUsers }) {
   return (

@@ -1,9 +1,8 @@
 import React from "react"
-import { useState, useEffect } from "react"
 import TeamCard from "./TeamCard"
 
 
-function Team({ teamData, user, setTeamData }) {
+function Team({ teamData, setTeamData }) {
 
     
     return(

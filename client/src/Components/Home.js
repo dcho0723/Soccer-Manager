@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import CreatePlayer from "./CreatePlayer";
 
-function Home({ user, setPlayers, players, searchUserPlayer, setUser }) {
+
+function Home({ user, setPlayers}) {
   //will rerender average rating
 
   useEffect(() => {

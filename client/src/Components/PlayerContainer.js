@@ -27,9 +27,6 @@ function PlayerContainer({
               <div key={player.id}>
                 <PlayerCard
                   id={player.id}
-                  dob={player.dob}
-                  club={player.club}
-                  country={player.country}
                   image={player.image}
                   name={player.name}
                   rating={player.rating}
@@ -41,7 +38,6 @@ function PlayerContainer({
                   dribble={player.dribble}
                   defence={player.defence}
                   physical={player.physical}
-                  bench={player.bench}
                   user={user}
                   teamData={teamData}
                   setTeamData={setTeamData}

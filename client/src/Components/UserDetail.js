@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
 import UserDetailForm from "./UserDetailForm"
 
 function UserDetail({ allUsers, user, getTheData }) {
   const { id } = useParams();
-  let history = useHistory();
+
 
   let playerId, pace, shot, pass, dribble, defence, physical, rating;
   if (user.show_user_players_length > 0) {
@@ -65,7 +65,6 @@ function UserDetail({ allUsers, user, getTheData }) {
       firstRandomScore + Math.floor(Math.random() * 3) + 1;
 
     if (randomNumberForDifference <= 10 && randomNumberForDifference >= -10) {
-      // console.log("i won")
       window.alert(
         `${winningStr} ${user.name} won ${secondRandomScore} - ${firstRandomScore}!`
       );
@@ -74,7 +73,6 @@ function UserDetail({ allUsers, user, getTheData }) {
       window.alert(
         `${losingStr} ${user.name} lost ${firstRandomScore} - ${secondRandomScore}!`
       );
-      // console.log("you lost")
       losingPatch();
     }
   }

@@ -14,7 +14,7 @@ function Users({ user, allUsers }) {
                 if (users.show_users_player) {
                   return (
                     <div>
-                      {users.show_users_player.position == "Goalie" ? (
+                      {users.show_users_player.position === "Goalie" ? (
                         <div className="playerCard">
                           <h1 className="playerName">
                             {users.show_users_player.name}

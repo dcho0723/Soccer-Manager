@@ -57,7 +57,6 @@ function UserDetail({ allUsers, user, getTheData }) {
     ];
 
     let winningStr = winningArr[Math.floor(Math.random() * winningArr.length)];
-
     let losingStr = losingArr[Math.floor(Math.random() * losingArr.length)];
 
     let firstRandomScore = Math.floor(Math.random() * 4);

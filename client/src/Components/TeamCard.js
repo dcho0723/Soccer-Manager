@@ -8,6 +8,7 @@ function TeamCard({ teamData, setTeamData }) {
       .then((res) => res.json())
       .then((data) => setTeamData(data));
   }, []);
+//refractor 
 
   let forwardPlayers = teamData.map((player) => {
     if (!player.bench && player.position == "Forward") {

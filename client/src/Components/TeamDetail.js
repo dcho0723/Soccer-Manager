@@ -31,7 +31,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
     getTheData();
     fetchTeamPlayers();
   }
-
+//refractor 
   return (
     <div >
       <div>

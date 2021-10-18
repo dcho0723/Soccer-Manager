@@ -10,7 +10,7 @@ function Home({ user, setPlayers}) {
       .then((res) => res.json())
       .then((data) => setPlayers(data));
   }, []);
-
+//refractor user serializer 
   function returnPlayer() {
     if (user.show_users_player_position == "Goalie") {
       return (

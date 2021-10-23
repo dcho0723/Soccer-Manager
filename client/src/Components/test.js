@@ -1,4 +1,4 @@
-//refractor
+//refractored for teamdetail 
 
 return (
   <div>

@@ -13,6 +13,7 @@ function Users({ user, allUsers }) {
               .map((users) => {
                 if (users.show_users_player) {
                   return (
+/// have refractred in test
                     <div>
                       {users.show_users_player.position === "Goalie" ? (
                         <div className="playerCard">
@@ -90,7 +91,9 @@ function Users({ user, allUsers }) {
                         </div>
                       )}
                     </div>
+    /////^^^ refractor////
                   );
+
                 } else {
                   return (
                     <div className="playerCard">

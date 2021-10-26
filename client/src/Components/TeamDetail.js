@@ -1,10 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-
 function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
   const { id } = useParams();
-
 
   function handleDelete() {
     fetch(`/team/${id}/remove`, {
@@ -148,6 +146,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
       </div>
     </div>
   );
+
 }
 
 export default TeamDetail;

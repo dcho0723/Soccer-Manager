@@ -8,19 +8,34 @@ function TeamCard({ teamData, setTeamData }) {
       .then((res) => res.json())
       .then((data) => setTeamData(data));
   }, []);
-//refractor 
+  //refractor
+
+  ///test out adding player return to variable
+  let playerReturn = (
+    <div className="cardBorder" key={player.id}>
+      <Link to={`/team/${player.id}`} style={{ textDecoration: "none" }}>
+        <div className="smallDivPlayer">
+          <h3>{player.name}</h3>
+          <img src={player.image} className="smallPlayerImg" />
+        </div>
+      </Link>
+    </div>
+  );
+
+  /////////
 
   let forwardPlayers = teamData.map((player) => {
     if (!player.bench && player.position == "Forward") {
       return (
-        <div className="cardBorder" key={player.id}>
-          <Link to={`/team/${player.id}`} style={{ textDecoration: "none" }}>
-            <div className="smallDivPlayer">
-              <h3>{player.name}</h3>
-              <img src={player.image} className="smallPlayerImg" />
-            </div>
-          </Link>
-        </div>
+        // <div className="cardBorder" key={player.id}>
+        //   <Link to={`/team/${player.id}`} style={{ textDecoration: "none" }}>
+        //     <div className="smallDivPlayer">
+        //       <h3>{player.name}</h3>
+        //       <img src={player.image} className="smallPlayerImg" />
+        //     </div>
+        //   </Link>
+        // </div>
+
       );
     }
   });
@@ -73,24 +88,28 @@ function TeamCard({ teamData, setTeamData }) {
       );
     }
   });
-  
+
   let benchPlayers = teamData.map((player) => {
     if (player.bench) {
       return (
         <Link to={`/team/${player.id}`} style={{ textDecoration: "none" }}>
           <div
             key={player.id}
-            style={{ marginTop: "25px"}}
+            style={{ marginTop: "25px" }}
             className="smallBenchPlayer"
           >
-            <h4 style={{marginBottom: "10px"}}>{player.name}</h4>
-            <p style={{margin: "0px"}}>{player.position}</p>
-            <img src={player.image} className="smallPlayerImg" style={{marginBottom: "10px"}}/>
+            <h4 style={{ marginBottom: "10px" }}>{player.name}</h4>
+            <p style={{ margin: "0px" }}>{player.position}</p>
+            <img
+              src={player.image}
+              className="smallPlayerImg"
+              style={{ marginBottom: "10px" }}
+            />
           </div>
         </Link>
       );
     }
-  })
+  });
 
   return (
     <div className="soccerField">
@@ -98,17 +117,14 @@ function TeamCard({ teamData, setTeamData }) {
         <div className="fieldPlayers" style={{ paddingTop: "50px" }}>
           {forwardPlayers}
         </div>
-        <div className="fieldPlayers">
-          {midfielderPlayers}
-        </div>
-        <div className="fieldPlayers">
-          {defencePlayers}
-        </div>
-        <div className="fieldPlayers">
-          {goaliePlayers}
-        </div>
+        <div className="fieldPlayers">{midfielderPlayers}</div>
+        <div className="fieldPlayers">{defencePlayers}</div>
+        <div className="fieldPlayers">{goaliePlayers}</div>
       </div>
-      <div className="benchPlayers" style={{ marginTop: "20px", paddingBottom: "20px"}}>
+      <div
+        className="benchPlayers"
+        style={{ marginTop: "20px", paddingBottom: "20px" }}
+      >
         {benchPlayers}
       </div>
     </div>

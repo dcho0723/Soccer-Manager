@@ -7,8 +7,6 @@ return (
         .filter((player) => player.id == id)
         .map((player) => {
           currentPlayerBench = player.bench;
-
-        //   if (player.position == "Goalie") {
             return (
               <div className="teamPlayerDetail">
                 <h1 className="teamPlayerName">{player.name}</h1>

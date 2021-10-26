@@ -143,6 +143,8 @@ function UserDetail({ allUsers, user, getTheData }) {
                 <br />
                 {otherUser.players.map((players) => {
                   return (
+//////////////////// refractor in test/////////////////////////
+
                     <>
                       {players.position == "Goalie" ? (
                         <div className="playerCard">
@@ -192,6 +194,9 @@ function UserDetail({ allUsers, user, getTheData }) {
                         </div>
                       )}
                     </>
+
+////////////////////////////////////////////////////////////////
+
                   );
                 })}
               </div>

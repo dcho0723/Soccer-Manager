@@ -29,7 +29,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
     getTheData();
     fetchTeamPlayers();
   }
-//refractor 
+//refractor in test ////////////////////////////////////
   return (
     <div >
       <div>
@@ -146,7 +146,7 @@ function TeamDetail({ teamData, fetchTeamPlayers, getTheData, user }) {
       </div>
     </div>
   );
-
+/////////////////////////////////////////////////////
 }
 
 export default TeamDetail;

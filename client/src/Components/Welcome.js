@@ -61,7 +61,6 @@ function Welcome({ user, password }) {
   function chooseClub() {
     if (user.favoriteclub !== null || usersClub !== "") {
       return (
-
           <div className="premier-table">
             <img
               className="league-logo"
@@ -102,7 +101,6 @@ function Welcome({ user, password }) {
               }
             })}
           </div>
-
       );
     } else {
       return (

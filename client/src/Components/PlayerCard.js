@@ -17,6 +17,7 @@ function PlayerCard({
   teamData,
   addPlayersToTeam,
 }) {
+
   function handleClick() {
     fetch("/userplayer", {
       method: "POST",
@@ -37,6 +38,8 @@ function PlayerCard({
       }
     });
   }
+
+  ///////////// refractor in test///////////////////
   return (
     <div className="player">
       {position == "Goalie" ? (
@@ -86,6 +89,9 @@ function PlayerCard({
       )}
     </div>
   );
+
+
+  ////////////////////////////////////////////////////////////////
 }
 
 export default PlayerCard;

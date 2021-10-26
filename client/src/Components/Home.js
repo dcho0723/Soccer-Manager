@@ -11,6 +11,8 @@ function Home({ user, setPlayers}) {
       .then((data) => setPlayers(data));
   }, []);
 //refractor user serializer 
+
+////////////refractor return player in test////////////////
   function returnPlayer() {
     if (user.show_users_player_position == "Goalie") {
       return (
@@ -76,6 +78,9 @@ function Home({ user, setPlayers}) {
       );
     }
   }
+
+
+  ////////////////////////////////////////////
 
   function searchUserPlayer() {
     if (user.show_user_players_length === 0) {

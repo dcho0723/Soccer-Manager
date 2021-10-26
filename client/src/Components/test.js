@@ -1,76 +1,76 @@
 //refractored for teamdetail
 
-// return (
-//   <div>
-//     <div>
-//       {teamData
-//         .filter((player) => player.id == id)
-//         .map((player) => {
-//           currentPlayerBench = player.bench;
-//           return (
-//             <div className="teamPlayerDetail">
-//               <h1 className="teamPlayerName">{player.name}</h1>
-//               <div className="teamPlayerDetailPic">
-//                 <img
-//                   src={player.image}
-//                   style={{ width: "80%", marginBottom: "100px" }}
-//                 />
-//               </div>
-//               <div className="teamPlayerDetailInfo">
-//                 <h1 style={{ textAlign: "left", fontSize: "40px" }}>
-//                   Rating: {player.rating}
-//                 </h1>
-//                 {player.position == "Goalie" ? (
-//                   <div className="TeamPlayerDetailStat">
-//                     <h2>Position: {player.position}</h2>
-//                     <p>Diving: {player.pace}</p>
-//                     <p>Handling: {player.shot}</p>
-//                     <p>Kicking: {player.pass}</p>
-//                     <p>Reflexes: {player.dribble}</p>
-//                     <p>Speed: {player.defence}</p>
-//                     <p>Positioning: {player.physical}</p>
-//                   </div>
-//                 ) : (
-//                   <div className="TeamPlayerDetailStat">
-//                     <h2>Position: {player.position}</h2>
-//                     <p>Pace: {player.pace}</p>
-//                     <p>Shot: {player.shot}</p>
-//                     <p>Pass: {player.pass}</p>
-//                     <p>Dribble: {player.dribble}</p>
-//                     <p>Defence: {player.defence}</p>
-//                     <p>Physical: {player.physical}</p>
-//                   </div>
-//                 )}
-//                 <div className="teamPlayerDetailAbout">
-//                   <h2>About</h2>
-//                   <p>Country: {player.country}</p>
-//                   <p>Number: {player.number}</p>
-//                   {player.name != user.name ? <p>Club: {player.club}</p> : null}
-//                   <p>Date of Birth: {player.dob}</p>
-//                 </div>
-//                 <div className="teamplayerDetailButtons">
-//                   {player.name != user.name ? (
-//                     <button className="playerDetailBtn" onClick={handleDelete}>
-//                       Remove From Team
-//                     </button>
-//                   ) : null}
-//                   {player.bench ? (
-//                     <button className="benchBtn" onClick={handleBench}>
-//                       Start Player
-//                     </button>
-//                   ) : (
-//                     <button className="benchBtn" onClick={handleBench}>
-//                       Bench Player
-//                     </button>
-//                   )}
-//                 </div>
-//               </div>
-//             </div>
-//           );
-//         })}
-//     </div>
-//   </div>
-// );
+return (
+  <div>
+    <div>
+      {teamData
+        .filter((player) => player.id == id)
+        .map((player) => {
+          currentPlayerBench = player.bench;
+          return (
+            <div className="teamPlayerDetail">
+              <h1 className="teamPlayerName">{player.name}</h1>
+              <div className="teamPlayerDetailPic">
+                <img
+                  src={player.image}
+                  style={{ width: "80%", marginBottom: "100px" }}
+                />
+              </div>
+              <div className="teamPlayerDetailInfo">
+                <h1 style={{ textAlign: "left", fontSize: "40px" }}>
+                  Rating: {player.rating}
+                </h1>
+                {player.position == "Goalie" ? (
+                  <div className="TeamPlayerDetailStat">
+                    <h2>Position: {player.position}</h2>
+                    <p>Diving: {player.pace}</p>
+                    <p>Handling: {player.shot}</p>
+                    <p>Kicking: {player.pass}</p>
+                    <p>Reflexes: {player.dribble}</p>
+                    <p>Speed: {player.defence}</p>
+                    <p>Positioning: {player.physical}</p>
+                  </div>
+                ) : (
+                  <div className="TeamPlayerDetailStat">
+                    <h2>Position: {player.position}</h2>
+                    <p>Pace: {player.pace}</p>
+                    <p>Shot: {player.shot}</p>
+                    <p>Pass: {player.pass}</p>
+                    <p>Dribble: {player.dribble}</p>
+                    <p>Defence: {player.defence}</p>
+                    <p>Physical: {player.physical}</p>
+                  </div>
+                )}
+                <div className="teamPlayerDetailAbout">
+                  <h2>About</h2>
+                  <p>Country: {player.country}</p>
+                  <p>Number: {player.number}</p>
+                  {player.name != user.name ? <p>Club: {player.club}</p> : null}
+                  <p>Date of Birth: {player.dob}</p>
+                </div>
+                <div className="teamplayerDetailButtons">
+                  {player.name != user.name ? (
+                    <button className="playerDetailBtn" onClick={handleDelete}>
+                      Remove From Team
+                    </button>
+                  ) : null}
+                  {player.bench ? (
+                    <button className="benchBtn" onClick={handleBench}>
+                      Start Player
+                    </button>
+                  ) : (
+                    <button className="benchBtn" onClick={handleBench}>
+                      Bench Player
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+    </div>
+  </div>
+);
 
 ////////////////////////////////////////////////////////////////
 
@@ -122,3 +122,51 @@ return (
 );
 
 /////////////////////////////
+
+//////returnPlayer in Home ///////////////////////
+function returnPlayer() {
+  return (
+    <div className="teamPlayerDetail">
+      <h1 className="teamPlayerName">{user.show_users_player_name}</h1>
+      <div className="teamPlayerDetailPic">
+        <img src={user.show_users_player_image} style={{ width: "80%" }} />
+      </div>
+      <div className="teamPlayerDetailInfo">
+        <h1 style={{ textAlign: "left", fontSize: "40px" }}>
+          Rating: {user.show_users_player_rating}
+        </h1>
+
+        {user.show_users_player_position == "Goalie" ? (
+          <div className="TeamPlayerDetailStat">
+            <h2>Position: {user.show_users_player_position}</h2>
+            <p>Diving: {user.show_users_player_pace}</p>
+            <p>Handling: {user.show_users_player_shot}</p>
+            <p>Kicking: {user.show_users_player_pass}</p>
+            <p>Reflexes: {user.show_users_player_dribble}</p>
+            <p>Speed: {user.show_users_player_defence}</p>
+            <p>Positioning: {user.show_users_player_physical}</p>
+          </div>
+        ) : (
+          <div className="TeamPlayerDetailStat">
+            <h2>Position: {user.show_users_player_position}</h2>
+            <p>Pace: {user.show_users_player_pace}</p>
+            <p>Shot: {user.show_users_player_shot}</p>
+            <p>Pass: {user.show_users_player_pass}</p>
+            <p>Dribble: {user.show_users_player_dribble}</p>
+            <p>Defence: {user.show_users_player_defence}</p>
+            <p>Physical: {user.show_users_player_physical}</p>
+          </div>
+        )}
+
+        <div className="teamPlayerDetailAbout">
+          <h2>About</h2>
+          {user.favoriteclub ? <p>Favorite Club: {user.favoriteclub}</p> : null}
+          <p>Number: {user.show_users_player_number}</p>
+          <p>Date of Birth: {user.show_users_player_dob}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/////////////////////////////////////////////////

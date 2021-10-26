@@ -93,7 +93,8 @@ function Users({ user, allUsers }) {
                     </div>
 
                   );
-    /////^^^ refractor////
+    /////^^^ refractor in test////
+
                 } else {
                   return (
                     <div className="playerCard">

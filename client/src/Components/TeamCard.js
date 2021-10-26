@@ -27,6 +27,8 @@ function TeamCard({ teamData, setTeamData }) {
   let forwardPlayers = teamData.map((player) => {
     if (!player.bench && player.position == "Forward") {
       return (
+        {playerReturn}
+
         // <div className="cardBorder" key={player.id}>
         //   <Link to={`/team/${player.id}`} style={{ textDecoration: "none" }}>
         //     <div className="smallDivPlayer">
@@ -43,14 +45,15 @@ function TeamCard({ teamData, setTeamData }) {
   let midfielderPlayers = teamData.map((player) => {
     if (!player.bench && player.position == "Midfielder") {
       return (
-        <div className="cardBorder" key={player.id}>
-          <Link to={`/team/${player.id}`} style={{ textDecoration: "none" }}>
-            <div className="smallDivPlayer">
-              <h3>{player.name}</h3>
-              <img src={player.image} className="smallPlayerImg" />
-            </div>
-          </Link>
-        </div>
+        {playerReturn}
+        // <div className="cardBorder" key={player.id}>
+        //   <Link to={`/team/${player.id}`} style={{ textDecoration: "none" }}>
+        //     <div className="smallDivPlayer">
+        //       <h3>{player.name}</h3>
+        //       <img src={player.image} className="smallPlayerImg" />
+        //     </div>
+        //   </Link>
+        // </div>
       );
     }
   });
@@ -58,14 +61,16 @@ function TeamCard({ teamData, setTeamData }) {
   let defencePlayers = teamData.map((player) => {
     if (!player.bench && player.position == "Defender") {
       return (
-        <div className="cardBorder" key={player.id}>
-          <Link to={`/team/${player.id}`} style={{ textDecoration: "none" }}>
-            <div className="smallDivPlayer">
-              <h3>{player.name}</h3>
-              <img src={player.image} className="smallPlayerImg" />
-            </div>
-          </Link>
-        </div>
+        {playerReturn}
+        // <div className="cardBorder" key={player.id}>
+        //   <Link to={`/team/${player.id}`} style={{ textDecoration: "none" }}>
+        //     <div className="smallDivPlayer">
+        //       <h3>{player.name}</h3>
+        //       <img src={player.image} className="smallPlayerImg" />
+        //     </div>
+        //   </Link>
+        // </div>
+
       );
     }
   });

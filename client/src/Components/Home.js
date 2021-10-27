@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-
-function Home({ user, setPlayers}) {
+function Home({ user, setPlayers }) {
   //will rerender average rating
 
   useEffect(() => {
@@ -10,21 +9,21 @@ function Home({ user, setPlayers}) {
       .then((res) => res.json())
       .then((data) => setPlayers(data));
   }, []);
-//refractor user serializer 
+  //refractor user serializer
 
-////////////refractor return player in test////////////////
   function returnPlayer() {
-    if (user.show_users_player_position == "Goalie") {
-      return (
-        <div className="teamPlayerDetail">
-          <h1 className="teamPlayerName">{user.show_users_player_name}</h1>
-          <div className="teamPlayerDetailPic">
-            <img src={user.show_users_player_image} style={{ width: "80%" }} />
-          </div>
-          <div className="teamPlayerDetailInfo">
-            <h1 style={{ textAlign: "left", fontSize: "40px" }}>
-              Rating: {user.show_users_player_rating}
-            </h1>
+    return (
+      <div className="teamPlayerDetail">
+        <h1 className="teamPlayerName">{user.show_users_player_name}</h1>
+        <div className="teamPlayerDetailPic">
+          <img src={user.show_users_player_image} style={{ width: "80%" }} />
+        </div>
+        <div className="teamPlayerDetailInfo">
+          <h1 style={{ textAlign: "left", fontSize: "40px" }}>
+            Rating: {user.show_users_player_rating}
+          </h1>
+
+          {user.show_users_player_position == "Goalie" ? (
             <div className="TeamPlayerDetailStat">
               <h2>Position: {user.show_users_player_position}</h2>
               <p>Diving: {user.show_users_player_pace}</p>
@@ -34,28 +33,7 @@ function Home({ user, setPlayers}) {
               <p>Speed: {user.show_users_player_defence}</p>
               <p>Positioning: {user.show_users_player_physical}</p>
             </div>
-            <div className="teamPlayerDetailAbout">
-              <h2>About</h2>
-              {user.favoriteclub ? (
-                <p>Favorite Club: {user.favoriteclub}</p>
-              ) : null}
-              <p>Number: {user.show_users_player_number}</p>
-              <p>Date of Birth: {user.show_users_player_dob}</p>
-            </div>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="teamPlayerDetail">
-          <h1 className="teamPlayerName">{user.show_users_player_name}</h1>
-          <div className="teamPlayerDetailPic">
-            <img src={user.show_users_player_image} style={{ width: "80%" }} />
-          </div>
-          <div className="teamPlayerDetailInfo">
-            <h1 style={{ textAlign: "left", fontSize: "40px" }}>
-              Rating: {user.show_users_player_rating}
-            </h1>
+          ) : (
             <div className="TeamPlayerDetailStat">
               <h2>Position: {user.show_users_player_position}</h2>
               <p>Pace: {user.show_users_player_pace}</p>
@@ -65,22 +43,20 @@ function Home({ user, setPlayers}) {
               <p>Defence: {user.show_users_player_defence}</p>
               <p>Physical: {user.show_users_player_physical}</p>
             </div>
-            <div className="teamPlayerDetailAbout">
-              <h2>About</h2>
-              {user.favoriteclub ? (
-                <p>Favorite Club: {user.favoriteclub}</p>
-              ) : null}
-              <p>Number: {user.show_users_player_number}</p>
-              <p>Date of Birth: {user.show_users_player_dob}</p>
-            </div>
+          )}
+
+          <div className="teamPlayerDetailAbout">
+            <h2>About</h2>
+            {user.favoriteclub ? (
+              <p>Favorite Club: {user.favoriteclub}</p>
+            ) : null}
+            <p>Number: {user.show_users_player_number}</p>
+            <p>Date of Birth: {user.show_users_player_dob}</p>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
-
-
-  ////////////////////////////////////////////
 
   function searchUserPlayer() {
     if (user.show_user_players_length === 0) {

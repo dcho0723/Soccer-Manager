@@ -14,7 +14,6 @@ import Welcome from "./Components/Welcome";
 import { useHistory } from "react-router-dom";
 import UserDetail from "./Components/UserDetail";
 
-
 function App() {
   const [user, setUser] = useState(false);
   const [players, setPlayers] = useState([]);
@@ -44,7 +43,7 @@ function App() {
       if (!response.ok) throw Error();
       const data = await response.json();
       setTeamData(data);
-      console.log(teamData);
+      // console.log(teamData);
     } catch (err) {
       console.log(err);
     }
@@ -107,7 +106,6 @@ function App() {
     setPassword("");
     setUser(false);
   }
-
 
   return (
     <>

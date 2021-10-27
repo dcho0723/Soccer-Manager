@@ -1,4 +1,3 @@
-
 /////////return in PlayerCard////////////////////
 return (
   <div className="player">

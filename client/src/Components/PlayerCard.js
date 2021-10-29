@@ -17,7 +17,6 @@ function PlayerCard({
   teamData,
   addPlayersToTeam,
 }) {
-
   function handleClick() {
     fetch("/userplayer", {
       method: "POST",
@@ -39,59 +38,50 @@ function PlayerCard({
     });
   }
 
-  ///////////// refractor in test///////////////////
   return (
     <div className="player">
-      {position == "Goalie" ? (
-        <div className="playerCard">
-          <h1 className="playerName">{name}</h1>
-          <h2 className="ratingName">Rating: {rating}</h2>
-          <div style={{ textAlign: "center" }}>
-            <img src={image} className="playerImg" />
-            <h3 className="playerPosition">Position: {position}</h3>
-          </div>
-          <div className="goalieStat">
-            <p>Diving: {pace}</p>
-            <p>Handling: {shot}</p>
-            <p>Kicking: {pass}</p>
-          </div>
-          <div>
-            <p>Reflexes: {dribble}</p>
-            <p>Speed: {defence}</p>
-            <p>Positioning: {physical}</p>
-          </div>
-          <div className="playerButton">
-            <button onClick={handleClick} className="addPlayerBtn">Add To Your Team</button>
-          </div>
+      <div className="playerCard">
+        <h1 className="playerName">{name}</h1>
+        <h2 className="ratingName">Rating: {rating}</h2>
+        <div style={{ textAlign: "center" }}>
+          <img src={image} className="playerImg" />
+          <h3 className="playerPosition">Position: {position}</h3>
         </div>
-      ) : (
-        <div className="playerCard">
-          <h1 className="playerName">{name}</h1>
-          <h2 className="ratingName">Rating: {rating}</h2>
-          <div style={{ textAlign: "center" }}>
-            <img src={image} className="playerImg" />
-            <h3 className="playerPosition">Position: {position}</h3>
-          </div>
-          <div className="playerStat">
-            <p>Pace: {pace}</p>
-            <p>Shot: {shot}</p>
-            <p>Pass: {pass}</p>
-          </div>
-          <div>
-            <p>Dribble: {dribble}</p>
-            <p>Defence: {defence}</p>
-            <p>Physical: {physical}</p>
-          </div>
-          <div className="playerButton">
-            <button onClick={handleClick} className="addPlayerBtn">Add To Your Team</button>
-          </div>
+        {position == "Goalie" ? (
+          <>
+            <div className="goalieStat">
+              <p>Diving: {pace}</p>
+              <p>Handling: {shot}</p>
+              <p>Kicking: {pass}</p>
+            </div>
+            <div>
+              <p>Reflexes: {dribble}</p>
+              <p>Speed: {defence}</p>
+              <p>Positioning: {physical}</p>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="playerStat">
+              <p>Pace: {pace}</p>
+              <p>Shot: {shot}</p>
+              <p>Pass: {pass}</p>
+            </div>
+            <div>
+              <p>Dribble: {dribble}</p>
+              <p>Defence: {defence}</p>
+              <p>Physical: {physical}</p>
+            </div>
+          </>
+        )}
+        <div className="playerButton">
+          <button onClick={handleClick} className="addPlayerBtn">
+            Add To Your Team
+          </button>
         </div>
-      )}
+      </div>
     </div>
   );
-
-
-  ////////////////////////////////////////////////////////////////
 }
 
 export default PlayerCard;

@@ -1,10 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import UserDetailForm from "./UserDetailForm"
+import UserDetailForm from "./UserDetailForm";
 
 function UserDetail({ allUsers, user, getTheData }) {
   const { id } = useParams();
-
 
   let playerId, pace, shot, pass, dribble, defence, physical, rating;
   if (user.show_user_players_length > 0) {
@@ -143,21 +142,17 @@ function UserDetail({ allUsers, user, getTheData }) {
                 <br />
                 {otherUser.players.map((players) => {
                   return (
-//////////////////// refractor in test/////////////////////////
-
-                    <>
+                    <div className="playerCard">
+                      <h1 className="playerName">{players.name}</h1>
+                      <h2 className="ratingName">Rating: {players.rating}</h2>
+                      <div style={{ textAlign: "center" }}>
+                        <img src={players.image} className="playerImg" />
+                        <h3 className="playerPosition">
+                          Position: {players.position}
+                        </h3>
+                      </div>
                       {players.position == "Goalie" ? (
-                        <div className="playerCard">
-                          <h1 className="playerName">{players.name}</h1>
-                          <h2 className="ratingName">
-                            Rating: {players.rating}
-                          </h2>
-                          <div style={{ textAlign: "center" }}>
-                            <img src={players.image} className="playerImg" />
-                            <h3 className="playerPosition">
-                              Position: {players.position}
-                            </h3>
-                          </div>
+                        <>
                           <div className="goalieStat">
                             <p>Diving: {players.pace}</p>
                             <p>Handling: {players.shot}</p>
@@ -168,19 +163,9 @@ function UserDetail({ allUsers, user, getTheData }) {
                             <p>Speed: {players.defence}</p>
                             <p>Positioning: {players.physical}</p>
                           </div>
-                        </div>
+                        </>
                       ) : (
-                        <div className="playerCard">
-                          <h1 className="playerName">{players.name}</h1>
-                          <h2 className="ratingName">
-                            Rating: {players.rating}
-                          </h2>
-                          <div style={{ textAlign: "center" }}>
-                            <img src={players.image} className="playerImg" />
-                            <h3 className="playerPosition">
-                              Position: {players.position}
-                            </h3>
-                          </div>
+                        <>
                           <div className="playerStat">
                             <p>Pace: {players.pace}</p>
                             <p>Shot: {players.shot}</p>
@@ -191,20 +176,15 @@ function UserDetail({ allUsers, user, getTheData }) {
                             <p>Defence: {players.defence}</p>
                             <p>Physical: {players.physical}</p>
                           </div>
-                        </div>
+                        </>
                       )}
-                    </>
-
-////////////////////////////////////////////////////////////////
-
+                    </div>
                   );
                 })}
               </div>
             );
           } else {
-            return (
-              <UserDetailForm otherUser={otherUser}/>
-            );
+            return <UserDetailForm otherUser={otherUser} />;
           }
         })}
     </div>
